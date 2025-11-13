@@ -1,0 +1,205 @@
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.exe
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\appsettings.json
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.deps.json
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.runtimeconfig.json
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.pdb
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Azure.Core.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Azure.Identity.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Data.SqlClient.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Options.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Primitives.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Identity.Client.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.SqlServer.Server.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Sharp7.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.ClientModel.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.Memory.Data.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.Runtime.Caching.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\WinForms.DataVisualization.Utilities.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\WinForms.DataVisualization.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.AssemblyReference.cache
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Form1.resources
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.DesOven1.resources
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Pages.DesOven2.resources
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Properties.Resources.resources
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.GenerateResource.cache
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.AssemblyInfoInputs.cache
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.AssemblyInfo.cs
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.CoreCompileInputs.cache
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.sourcelink.json
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Ove.817B8341.Up2Date
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\refint\Meme_Oven_Data.dll
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.pdb
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.genruntimeconfig.cache
+E:\WORKS ALL\Siemens\ΜΙΚΡΟΠΟΥΛΟΣ\CPU_DATA_PLATFORM\Meneksopoulos\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ref\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.exe
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\appsettings.json
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.deps.json
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.runtimeconfig.json
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.pdb
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Azure.Core.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Azure.Identity.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Identity.Client.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Sharp7.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.ClientModel.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.Memory.Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.Runtime.Caching.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\WinForms.DataVisualization.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.AssemblyReference.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Form1.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.DesOven1.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Pages.DesOven2.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Properties.Resources.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.GenerateResource.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.AssemblyInfoInputs.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.AssemblyInfo.cs
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.CoreCompileInputs.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Ove.817B8341.Up2Date
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\refint\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.pdb
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.genruntimeconfig.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250221\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ref\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.AssemblyReference.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Form1.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.DesOven1.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Pages.DesOven2.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Properties.Resources.resources
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.GenerateResource.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.AssemblyInfoInputs.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.AssemblyInfo.cs
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.csproj.CoreCompileInputs.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\refint\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.pdb
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.exe
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\appsettings.json
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.deps.json
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.runtimeconfig.json
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Meme_Oven_Data.pdb
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Azure.Core.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Azure.Identity.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Identity.Client.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\Sharp7.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.ClientModel.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.Memory.Data.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\System.Runtime.Caching.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\WinForms.DataVisualization.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\bin\Release\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Ove.817B8341.Up2Date
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.genruntimeconfig.cache
+C:\Users\k.kapasakalidis\Documents\VSEPG\20250314\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ref\Meme_Oven_Data.dll
