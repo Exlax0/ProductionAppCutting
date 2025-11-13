@@ -223,7 +223,7 @@ namespace Meme_Oven_Data
                 return 0; // Return NaN on failure
             }
         }
-        private float GetRealValue(int dbNumber, int startByte, int size)
+        public float GetRealValue(int dbNumber, int startByte, int size)
         {
              
             byte[] buffer = _plc.ReadDataBlock(dbNumber, startByte, size);

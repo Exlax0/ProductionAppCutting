@@ -3123,11 +3123,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\WORKS ALL\\Csharp\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Meme_Oven_Data.csproj",
+      "projectUniqueName": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Meme_Oven_Data.csproj",
       "projectName": "Meme_Oven_Data",
-      "projectPath": "E:\\WORKS ALL\\Csharp\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Meme_Oven_Data.csproj",
+      "projectPath": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Meme_Oven_Data.csproj",
       "packagesPath": "C:\\Users\\papia\\.nuget\\packages\\",
-      "outputPath": "E:\\WORKS ALL\\Csharp\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\obj\\",
+      "outputPath": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\MESCIUS\\ComponentOne\\WinForms\\bin\\v8\\",

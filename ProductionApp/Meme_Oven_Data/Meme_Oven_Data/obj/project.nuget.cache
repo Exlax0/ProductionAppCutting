@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P2I7u869gKc=",
+  "dgSpecHash": "BVZL3JvUKdU=",
   "success": true,
-  "projectFilePath": "E:\\WORKS ALL\\Csharp\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Meme_Oven_Data.csproj",
+  "projectFilePath": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Meme_Oven_Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\papia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\papia\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
