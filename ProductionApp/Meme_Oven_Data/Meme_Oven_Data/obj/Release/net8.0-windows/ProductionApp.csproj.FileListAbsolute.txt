@@ -1,0 +1,10 @@
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.csproj.AssemblyReference.cache
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Form1.resources
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.DesOven1.resources
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\Meme_Oven_Data.Pages.DesOven2.resources
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.Properties.Resources.resources
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.csproj.GenerateResource.cache
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.AssemblyInfoInputs.cache
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.AssemblyInfo.cs
+E:\WORKS ALL\Csharp\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Release\net8.0-windows\ProductionApp.csproj.CoreCompileInputs.cache
