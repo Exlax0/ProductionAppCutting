@@ -59,6 +59,8 @@ namespace Meme_Oven_Data
             services.AddScoped<DesOven1>();
             services.AddScoped<DesOven2>();
             services.AddScoped<MachinePlan>();
+            services.AddScoped<ShiftPlan>();
+            services.AddTransient<Settings>();
 
         }
     }

@@ -174,6 +174,7 @@ namespace Meme_Oven_Data
             };
 
             
+            
 
 
             ChartArea chartArea = new ChartArea("MainArea")
@@ -326,7 +327,7 @@ namespace Meme_Oven_Data
             // Example: values from textboxes / numericUpDowns
             string machineName = "Cutting - Machine 01";  // or from a ComboBox
             int planHour = Convert.ToInt32(txtPlanHour.Value);                           // e.g. int.Parse(txtPlanHour.Text);
-            int planShift = 150;                          // e.g. int.Parse(txtPlanShift.Text);
+            int planShift = Convert.ToInt32(txtPlanShift.Value);                          // e.g. int.Parse(txtPlanShift.Text);
 
             // Try to find existing plan for this machine
             var plan = _dbContext.MachinePlan

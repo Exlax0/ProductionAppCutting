@@ -13,5 +13,8 @@
     <Compile Update="Pages\DesOven2.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Pages\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

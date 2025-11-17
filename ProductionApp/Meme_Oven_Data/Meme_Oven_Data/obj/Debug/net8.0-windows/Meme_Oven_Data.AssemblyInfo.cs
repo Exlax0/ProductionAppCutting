@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Meme_Oven_Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9834aa7218b9aa931baa727ad4e5e8ed667dfbd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba9952878c007893533c1eea694aa62f01822bdd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Meme_Oven_Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Meme_Oven_Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

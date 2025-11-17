@@ -23,21 +23,27 @@ namespace Meme_Oven_Data
         public static Boolean CuttingPulse3 { get; set; }
 
 
-
-
-
-
         private readonly MicrOvenContext _dbContext;
         private readonly IPLC _plc;
         private readonly IConfiguration _configuration;
         private readonly DesOven1 _desOven1;
         private readonly DesOven2 _desOven2;
+        private readonly Settings _Settings;
         private readonly MachinePlan _machinePlan;
+        private readonly ShiftPlan _shiftPlan;
         private Button Testbutton;
-       
 
-        public Form1(MicrOvenContext dbContext, IPLC plc, IConfiguration configuration, DesOven1 desOven1, DesOven2 desOven2, MachinePlan machinePlan)
+
+        public Form1(MicrOvenContext dbContext,
+                    IPLC plc, 
+                    IConfiguration configuration,
+                    DesOven1 desOven1,
+                    DesOven2 desOven2,
+                    MachinePlan machinePlan,
+                    ShiftPlan shiftPlan,
+                    Settings settings)
         {
+            _Settings = settings;
             _machinePlan = machinePlan;
             _desOven1 = desOven1;
             _desOven2 = desOven2;
@@ -46,25 +52,12 @@ namespace Meme_Oven_Data
             _configuration = configuration;
 
 
-
-            //var select = _dbContext.TempOven1.Select(x => x.Temperature).Take(10);
-            var aa = _dbContext.TempOven1.OrderByDescending(x => x.Date);
-            //var aaa = select.FirstOrDefault();
-            //var data = _dbContext.TempOven1
-            //        .OrderByDescending(x => x.Date) // Get the most recent records
-            //        //.Take(100)                     // Limit to 100 records
-            //        .OrderBy(x => x.Date).Select(x => new
-            //        {
-            //            x.Id,
-            //            x.Date
-
-            //        })
-            //.ToList();
             InitializeComponent();
             AddDesOven1Page();
             AddDesOven2Page();
+            AddedSettings();
 
-           
+
 
             this.Testbutton = new Button
             {
@@ -79,6 +72,7 @@ namespace Meme_Oven_Data
         {
             desOven11.Hide();
             desOven21.Hide();
+            Settings.Hide();
 
             string plcIpAddress = _configuration["plc:IpAddress1"]; // PLC's IP address
             int rack = int.Parse(_configuration["plc:rack"]); // Rack number
@@ -117,6 +111,7 @@ namespace Meme_Oven_Data
             desOven11.Location = new Point(0, 0);
             desOven11.Size = new Size(1720, 980);
             desOven21.Hide();
+            Settings.Hide();
         }
 
         private void btOven2_Click(object sender, EventArgs e)
@@ -126,6 +121,7 @@ namespace Meme_Oven_Data
             desOven21.Location = new Point(0, 0);
             desOven21.Size = new Size(1720, 980);
             desOven11.Hide();
+            Settings.Hide();
         }
 
         private void ReadData1_Tick(object sender, EventArgs e)
@@ -304,6 +300,17 @@ namespace Meme_Oven_Data
         {
             desOven21.Hide();
             desOven11.Hide();
+            Settings.Hide();
+        }
+
+        private void btSettings_Click(object sender, EventArgs e)
+        {
+            desOven21.Hide();
+            desOven11.Hide();
+            Settings.Show();
+            Settings.BringToFront();
+            Settings.Location = new Point(0, 0);
+            Settings.Size = new Size(1720, 980);
         }
     }
 }

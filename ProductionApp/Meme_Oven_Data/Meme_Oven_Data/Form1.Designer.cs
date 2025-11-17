@@ -24,6 +24,13 @@ namespace Meme_Oven_Data
 
         #region Windows Form Designer generated code
 
+        private void AddedSettings()
+        {
+            Settings = new Settings(_dbContext);
+            this.Controls.Add(Settings);
+            Settings.Dock = DockStyle.Fill;
+        }
+
         private void AddDesOven1Page()
         {
             desOven11 = new DesOven1(_dbContext); 
@@ -60,6 +67,7 @@ namespace Meme_Oven_Data
             pictureBox2 = new PictureBox();
             ReadData1 = new System.Windows.Forms.Timer(components);
             WriteToSQL = new System.Windows.Forms.Timer(components);
+            btSettings = new Button();
             NavPanel.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -72,6 +80,7 @@ namespace Meme_Oven_Data
             // NavPanel
             // 
             NavPanel.BackColor = Color.FromArgb(24, 30, 54);
+            NavPanel.Controls.Add(btSettings);
             NavPanel.Controls.Add(btInfo);
             NavPanel.Controls.Add(reconnect_btn);
             NavPanel.Controls.Add(btOven2);
@@ -215,6 +224,17 @@ namespace Meme_Oven_Data
             WriteToSQL.Interval = 2000;
             WriteToSQL.Tick += WriteToSQL_Tick;
             // 
+            // btSettings
+            // 
+            btSettings.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btSettings.Location = new Point(23, 964);
+            btSettings.Name = "btSettings";
+            btSettings.Size = new Size(155, 51);
+            btSettings.TabIndex = 5;
+            btSettings.Text = "Ρυθμίσεις Συστήματος";
+            btSettings.UseVisualStyleBackColor = true;
+            btSettings.Click += btSettings_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -251,11 +271,13 @@ namespace Meme_Oven_Data
         private Button btOven1;
         private DesOven2 desOven21;
         private DesOven1 desOven11;
+        private Settings Settings;
         private System.Windows.Forms.Timer ReadData1;
         private System.Windows.Forms.Timer WriteToSQL;
         private PictureBox pictureBox2;
         private Button reconnect_btn;
         private PictureBox pictureBox3;
         private Button btInfo;
+        private Button btSettings;
     }
 }
