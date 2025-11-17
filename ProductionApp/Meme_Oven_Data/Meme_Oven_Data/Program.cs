@@ -61,6 +61,7 @@ namespace Meme_Oven_Data
             services.AddScoped<MachinePlan>();
             services.AddScoped<ShiftPlan>();
             services.AddTransient<Settings>();
+            
 
         }
     }

@@ -54,6 +54,7 @@ namespace Meme_Oven_Data
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             NavPanel = new Panel();
+            btSettings = new Button();
             btInfo = new Button();
             reconnect_btn = new Button();
             btOven2 = new Button();
@@ -67,7 +68,6 @@ namespace Meme_Oven_Data
             pictureBox2 = new PictureBox();
             ReadData1 = new System.Windows.Forms.Timer(components);
             WriteToSQL = new System.Windows.Forms.Timer(components);
-            btSettings = new Button();
             NavPanel.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -93,6 +93,17 @@ namespace Meme_Oven_Data
             NavPanel.Size = new Size(200, 1080);
             NavPanel.TabIndex = 0;
             // 
+            // btSettings
+            // 
+            btSettings.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btSettings.Location = new Point(23, 964);
+            btSettings.Name = "btSettings";
+            btSettings.Size = new Size(155, 51);
+            btSettings.TabIndex = 5;
+            btSettings.Text = "Ρυθμίσεις Συστήματος";
+            btSettings.UseVisualStyleBackColor = true;
+            btSettings.Click += btSettings_Click;
+            // 
             // btInfo
             // 
             btInfo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
@@ -100,7 +111,7 @@ namespace Meme_Oven_Data
             btInfo.Name = "btInfo";
             btInfo.Size = new Size(155, 34);
             btInfo.TabIndex = 4;
-            btInfo.Text = "Info";
+            btInfo.Text = "Πληροφορίες";
             btInfo.UseVisualStyleBackColor = true;
             btInfo.Click += btInfo_Click;
             // 
@@ -111,7 +122,7 @@ namespace Meme_Oven_Data
             reconnect_btn.Name = "reconnect_btn";
             reconnect_btn.Size = new Size(155, 34);
             reconnect_btn.TabIndex = 3;
-            reconnect_btn.Text = "Reconnect";
+            reconnect_btn.Text = "Επανασύνδεση";
             reconnect_btn.UseVisualStyleBackColor = true;
             reconnect_btn.Visible = false;
             reconnect_btn.Click += reconnect_btn_Click;
@@ -123,7 +134,7 @@ namespace Meme_Oven_Data
             btOven2.Name = "btOven2";
             btOven2.Size = new Size(155, 33);
             btOven2.TabIndex = 2;
-            btOven2.Text = "Μηχανή Κοπής 2";
+            btOven2.Text = "Κοπτικό 2";
             btOven2.UseVisualStyleBackColor = true;
             btOven2.Click += btOven2_Click;
             // 
@@ -134,7 +145,7 @@ namespace Meme_Oven_Data
             btOven1.Name = "btOven1";
             btOven1.Size = new Size(155, 33);
             btOven1.TabIndex = 0;
-            btOven1.Text = "Μηχανή Κοπής 1";
+            btOven1.Text = "Κοπτικό 1";
             btOven1.UseVisualStyleBackColor = true;
             btOven1.Click += btOven1_Click;
             // 
@@ -223,17 +234,6 @@ namespace Meme_Oven_Data
             // 
             WriteToSQL.Interval = 2000;
             WriteToSQL.Tick += WriteToSQL_Tick;
-            // 
-            // btSettings
-            // 
-            btSettings.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btSettings.Location = new Point(23, 964);
-            btSettings.Name = "btSettings";
-            btSettings.Size = new Size(155, 51);
-            btSettings.TabIndex = 5;
-            btSettings.Text = "Ρυθμίσεις Συστήματος";
-            btSettings.UseVisualStyleBackColor = true;
-            btSettings.Click += btSettings_Click;
             // 
             // Form1
             // 

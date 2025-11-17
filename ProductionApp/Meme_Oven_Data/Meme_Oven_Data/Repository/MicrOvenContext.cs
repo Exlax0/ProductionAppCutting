@@ -14,7 +14,7 @@ namespace Meme_Oven_Data.Repository
         {
         }
         public DbSet<ShiftPlan> MachineShiftPlan { get; set; }
-
+        public DbSet<Operators> Operators { get; set; }
         public DbSet<TempOven1> TempOven1 { get; set; }
         public DbSet<TempOven2> TempOven2 { get; set; }
 
