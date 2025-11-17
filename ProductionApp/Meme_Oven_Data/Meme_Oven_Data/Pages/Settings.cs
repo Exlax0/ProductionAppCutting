@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 
 namespace Meme_Oven_Data.Pages
 {
@@ -22,6 +23,8 @@ namespace Meme_Oven_Data.Pages
         private TextBox txtUserName;
         private DataGridView gridNames;
         private Label lblUserName;
+        private DataGridView dgvOperators;
+        private BindingSource operatorsBindingSource = new BindingSource();
 
         public Settings(MicrOvenContext dbContext)
         {
@@ -29,8 +32,24 @@ namespace Meme_Oven_Data.Pages
             InitializeComponent();
             InitControls();
             LoadMachines();
+            LoadOperatorsGrid();
         }
-        
+
+        private void LoadOperatorsGrid()
+        {
+            // Φόρτωσε από τη βάση
+            _dbContext.Operators.Load();
+
+            // Δέσε τα EF Local entities στο BindingSource
+            operatorsBindingSource.DataSource = _dbContext.Operators.Local.ToBindingList();
+
+            // Το AutoGenerateColumns είναι false, γιατί φτιάξαμε custom στήλες
+            // Αν θες, μπορείς να βεβαιωθείς ότι Id είναι read-only:
+            if (dgvOperators.Columns["Id"] != null)
+                dgvOperators.Columns["Id"].ReadOnly = true;
+        }
+
+
 
         private void LoadMachines()
         {
@@ -157,7 +176,8 @@ namespace Meme_Oven_Data.Pages
             _dbContext.SaveChanges();
 
             MessageBox.Show("Χειριστής αποθηκεύτηκε επιτυχώς");
-           
+
+            LoadOperatorsGrid();
         }
 
 
@@ -260,8 +280,96 @@ namespace Meme_Oven_Data.Pages
             btStoreName.Click += btStoreName_Click;
             this.Controls.Add(btStoreName);
 
+            dgvOperators = new DataGridView
+            {
+                Location = new Point(450, 310),
+                Size = new Size(250, 200),
+                AllowUserToAddRows = true,
+                AllowUserToDeleteRows = true,
+                ReadOnly = false,
+                AutoGenerateColumns = false,
+                BackgroundColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                MultiSelect = false
+            };
+
+            var btnSaveOperators = new Button
+            {
+                Text = "Αποθήκευση αλλαγών χειριστών",
+                Location = new Point(450, 550),
+                Size = new Size(250, 40),
+                BackColor = Color.IndianRed,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold)
+            };
+            btnSaveOperators.Click += BtnSaveOperators_Click;
+            this.Controls.Add(btnSaveOperators);
+
+            // εμφάνιση – εναλλαγή χρωμάτων κ.λπ.
+            dgvOperators.RowHeadersVisible = false;
+            dgvOperators.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOperators.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            dgvOperators.EnableHeadersVisualStyles = false;
+            dgvOperators.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            dgvOperators.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+
+            // στήλες
+            var colId = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Id",
+                HeaderText = "Id",
+                Name = "Id",
+                ReadOnly = true,
+                Width = 60
+            };
+
+            var colName = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "FullName",
+                HeaderText = "Χειριστής",
+                Name = "FullName",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            };
+
+            dgvOperators.Columns.Add(colId);
+            dgvOperators.Columns.Add(colName);
+
+            // Binding στο BindingSource
+            dgvOperators.DataSource = operatorsBindingSource;
+
+            // πρόσθεσέ το στο UserControl
+            this.Controls.Add(dgvOperators);
+
+
+
+        }
+        private void BtnSaveOperators_Click(object sender, EventArgs e)
+        {
+            // κλείσε τυχόν edit που είναι σε εξέλιξη
+            dgvOperators.EndEdit();
+            operatorsBindingSource.EndEdit();
+
+            try
+            {
+                _dbContext.SaveChanges();
+                MessageBox.Show("Οι αλλαγές στους χειριστές αποθηκεύτηκαν.",
+                                "Αποθήκευση",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                // προαιρετικά: ξαναφορτώνεις για να είσαι 100% sync
+                // LoadOperatorsGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Προέκυψε σφάλμα κατά την αποθήκευση:\n" + ex.Message,
+                                "Σφάλμα",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
-       
+
+
     }
 }
