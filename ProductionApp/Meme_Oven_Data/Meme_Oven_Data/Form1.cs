@@ -17,25 +17,13 @@ namespace Meme_Oven_Data
     {
 
         public static Boolean CuttingPulse1 { get; set; }
-        private bool _prevCuttingPulse1=false;
+        private bool _prevCuttingPulse1 = false;
         public static Boolean CuttingPulse2 { get; set; }
         private bool _prevCuttingPulse2 = false;
         public static Boolean CuttingPulse3 { get; set; }
-        public static int ColorTainiaFurnace { get; set; }
-        public static int ColorTurbineSmokeNo1 { get; set; }
-        public static int ColorTurbineSmokeNo2 { get; set; }
-        public static int ColorTurbineChimney { get; set; }
-        public static int ColorTainiaCooler { get; set; }
-        public static int ColorSesoula { get; set; }
-        public static int ColorAnevatori { get; set; }
-        public static int ColorTurbineCoolerNo1 { get; set; }
-        public static int ColorTurbineCoolerNo2 { get; set; }
-        public static int ColorWaterPump { get; set; }
-        public static int ColorBurner { get; set; }
-        public static int ColorDonisi { get; set; }
-        public static int Recipe { get; set; }
 
-        public static string OnomaSintagis { get; set; }
+
+
 
 
 
@@ -44,10 +32,13 @@ namespace Meme_Oven_Data
         private readonly IConfiguration _configuration;
         private readonly DesOven1 _desOven1;
         private readonly DesOven2 _desOven2;
+        private readonly MachinePlan _machinePlan;
         private Button Testbutton;
+       
 
-        public Form1(MicrOvenContext dbContext, IPLC plc, IConfiguration configuration, DesOven1 desOven1, DesOven2 desOven2)
+        public Form1(MicrOvenContext dbContext, IPLC plc, IConfiguration configuration, DesOven1 desOven1, DesOven2 desOven2, MachinePlan machinePlan)
         {
+            _machinePlan = machinePlan;
             _desOven1 = desOven1;
             _desOven2 = desOven2;
             _dbContext = dbContext;
@@ -55,7 +46,7 @@ namespace Meme_Oven_Data
             _configuration = configuration;
 
 
-            
+
             //var select = _dbContext.TempOven1.Select(x => x.Temperature).Take(10);
             var aa = _dbContext.TempOven1.OrderByDescending(x => x.Date);
             //var aaa = select.FirstOrDefault();
@@ -66,12 +57,14 @@ namespace Meme_Oven_Data
             //        {
             //            x.Id,
             //            x.Date
-                        
+
             //        })
-                    //.ToList();
+            //.ToList();
             InitializeComponent();
             AddDesOven1Page();
-            
+            AddDesOven2Page();
+
+           
 
             this.Testbutton = new Button
             {
@@ -85,7 +78,8 @@ namespace Meme_Oven_Data
         private void Form1_Load(object sender, EventArgs e)
         {
             desOven11.Hide();
-           
+            desOven21.Hide();
+
             string plcIpAddress = _configuration["plc:IpAddress1"]; // PLC's IP address
             int rack = int.Parse(_configuration["plc:rack"]); // Rack number
             int slot = int.Parse(_configuration["plc:slot"]); // Slot number (usually 1 for S7-1200)
@@ -101,7 +95,7 @@ namespace Meme_Oven_Data
             if (client1 == true)
             {
                 ReadData1.Enabled = true;
-                reconnect_btn.Visible= false;
+                reconnect_btn.Visible = false;
             }
             else
             {
@@ -122,7 +116,7 @@ namespace Meme_Oven_Data
             desOven11.BringToFront();
             desOven11.Location = new Point(0, 0);
             desOven11.Size = new Size(1720, 980);
-            //desOven21.Hide();
+            desOven21.Hide();
         }
 
         private void btOven2_Click(object sender, EventArgs e)
@@ -143,9 +137,9 @@ namespace Meme_Oven_Data
 
             var aaaaa = _plc.ReadDataBlock(dbNumber, startByte, size);
 
-            if(aaaaa== null)
+            if (aaaaa == null)
             {
-             
+
                 ReadData1.Enabled = false;
                 WriteToSQL.Enabled = false;
                 reconnect_btn.Visible = true;
@@ -174,7 +168,7 @@ namespace Meme_Oven_Data
                     _dbContext.SaveChanges();
                 }
                 _prevCuttingPulse1 = CuttingPulse1;
-                
+
                 if (risingEdge2)
                 {
                     var tempOven1 = new TempOven1
@@ -199,7 +193,7 @@ namespace Meme_Oven_Data
                     Console.WriteLine("INNER: " + ex.InnerException.Message);
                 Console.WriteLine($"Error writing to SQL table: {ex.Message}");
             }
-            
+
 
 
         }
@@ -225,7 +219,7 @@ namespace Meme_Oven_Data
         }
         public float GetRealValue(int dbNumber, int startByte, int size)
         {
-             
+
             byte[] buffer = _plc.ReadDataBlock(dbNumber, startByte, size);
 
             if (buffer != null)
@@ -239,15 +233,15 @@ namespace Meme_Oven_Data
             }
         }
 
-       
+
 
         private void WriteToSQL_Tick(object sender, EventArgs e)
         {
-           
+
             try
             {
-                string RecipeName = Form1.OnomaSintagis;
-                float Level = GetRealValue(7,0,4); // Replace with your method to fetch the tag value
+
+                float Level = GetRealValue(7, 0, 4); // Replace with your method to fetch the tag value
                 bool risingEdge = CuttingPulse1 && !_prevCuttingPulse1;
 
                 if (risingEdge)
@@ -269,7 +263,7 @@ namespace Meme_Oven_Data
                     //_dbContext.SaveChanges();
 
                     //_prevCuttingPulse1 = CuttingPulse1;
-                Console.WriteLine("Temperature value written to SQL table.");
+                    Console.WriteLine("Temperature value written to SQL table.");
                 }
             }
             catch (Exception ex)
@@ -304,6 +298,12 @@ namespace Meme_Oven_Data
                 WriteToSQL.Enabled = false;
                 reconnect_btn.Visible = true;
             }
+        }
+
+        private void btInfo_Click(object sender, EventArgs e)
+        {
+            desOven21.Hide();
+            desOven11.Hide();
         }
     }
 }

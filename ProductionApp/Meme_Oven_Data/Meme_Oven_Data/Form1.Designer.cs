@@ -47,6 +47,7 @@ namespace Meme_Oven_Data
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             NavPanel = new Panel();
+            btInfo = new Button();
             reconnect_btn = new Button();
             btOven2 = new Button();
             btOven1 = new Button();
@@ -54,6 +55,7 @@ namespace Meme_Oven_Data
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             InfoPanel = new Panel();
+            pictureBox3 = new PictureBox();
             MainPanel = new Panel();
             pictureBox2 = new PictureBox();
             ReadData1 = new System.Windows.Forms.Timer(components);
@@ -61,6 +63,8 @@ namespace Meme_Oven_Data
             NavPanel.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -68,6 +72,7 @@ namespace Meme_Oven_Data
             // NavPanel
             // 
             NavPanel.BackColor = Color.FromArgb(24, 30, 54);
+            NavPanel.Controls.Add(btInfo);
             NavPanel.Controls.Add(reconnect_btn);
             NavPanel.Controls.Add(btOven2);
             NavPanel.Controls.Add(btOven1);
@@ -79,10 +84,21 @@ namespace Meme_Oven_Data
             NavPanel.Size = new Size(200, 1080);
             NavPanel.TabIndex = 0;
             // 
+            // btInfo
+            // 
+            btInfo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btInfo.Location = new Point(23, 150);
+            btInfo.Name = "btInfo";
+            btInfo.Size = new Size(155, 34);
+            btInfo.TabIndex = 4;
+            btInfo.Text = "Info";
+            btInfo.UseVisualStyleBackColor = true;
+            btInfo.Click += btInfo_Click;
+            // 
             // reconnect_btn
             // 
             reconnect_btn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            reconnect_btn.Location = new Point(21, 163);
+            reconnect_btn.Location = new Point(23, 267);
             reconnect_btn.Name = "reconnect_btn";
             reconnect_btn.Size = new Size(155, 34);
             reconnect_btn.TabIndex = 3;
@@ -94,23 +110,22 @@ namespace Meme_Oven_Data
             // btOven2
             // 
             btOven2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btOven2.Location = new Point(21, 261);
+            btOven2.Location = new Point(23, 228);
             btOven2.Name = "btOven2";
             btOven2.Size = new Size(155, 33);
             btOven2.TabIndex = 2;
-            btOven2.Text = "Φούρνος 2";
+            btOven2.Text = "Μηχανή Κοπής 2";
             btOven2.UseVisualStyleBackColor = true;
-            btOven2.Visible = false;
             btOven2.Click += btOven2_Click;
             // 
             // btOven1
             // 
             btOven1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 161);
-            btOven1.Location = new Point(21, 126);
+            btOven1.Location = new Point(23, 190);
             btOven1.Name = "btOven1";
             btOven1.Size = new Size(155, 33);
             btOven1.TabIndex = 0;
-            btOven1.Text = "Φούρνος 1";
+            btOven1.Text = "Μηχανή Κοπής 1";
             btOven1.UseVisualStyleBackColor = true;
             btOven1.Click += btOven1_Click;
             // 
@@ -154,11 +169,22 @@ namespace Meme_Oven_Data
             // InfoPanel
             // 
             InfoPanel.BackColor = Color.FromArgb(150, 150, 200);
+            InfoPanel.Controls.Add(pictureBox3);
             InfoPanel.Dock = DockStyle.Top;
             InfoPanel.Location = new Point(200, 0);
             InfoPanel.Name = "InfoPanel";
             InfoPanel.Size = new Size(1720, 100);
             InfoPanel.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(637, 5);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(288, 91);
+            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
             // 
             // MainPanel
             // 
@@ -172,9 +198,9 @@ namespace Meme_Oven_Data
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(190, 103);
+            pictureBox2.Location = new Point(143, 78);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1157, 661);
+            pictureBox2.Size = new Size(1444, 805);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
@@ -206,6 +232,8 @@ namespace Meme_Oven_Data
             NavPanel.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            InfoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             MainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -221,11 +249,13 @@ namespace Meme_Oven_Data
         private Button btClose;
         private Button btOven2;
         private Button btOven1;
-        private Pages.DesOven2 desOven21;
+        private DesOven2 desOven21;
         private DesOven1 desOven11;
         private System.Windows.Forms.Timer ReadData1;
         private System.Windows.Forms.Timer WriteToSQL;
         private PictureBox pictureBox2;
         private Button reconnect_btn;
+        private PictureBox pictureBox3;
+        private Button btInfo;
     }
 }

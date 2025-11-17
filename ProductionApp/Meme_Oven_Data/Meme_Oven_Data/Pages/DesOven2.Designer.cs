@@ -47,9 +47,9 @@
             label1.ForeColor = Color.Red;
             label1.Location = new Point(20, 13);
             label1.Name = "label1";
-            label1.Size = new Size(245, 30);
+            label1.Size = new Size(242, 30);
             label1.TabIndex = 3;
-            label1.Text = "Θερμοκασίες Φούρνου 2";
+            label1.Text = "Καταγραφές Μηχανής 2";
             // 
             // datePickerFrom
             // 
@@ -106,7 +106,7 @@
             // timerUpdateChart
             // 
             timerUpdateChart.Enabled = true;
-            timerUpdateChart.Interval = 3000;
+            timerUpdateChart.Interval = 1000;
             timerUpdateChart.Tick += timerUpdateChart_Tick;
             // 
             // DesOven2

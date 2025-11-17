@@ -26,14 +26,15 @@ namespace Meme_Oven_Data.Pages
             _dbContext = dbContext;
             InitializeComponent();
 
+
             this.chart = new Chart
             {
-                Size = new Size(1657, 858),
-                Location = new Point(50, 58),
+                Size = new Size(1657, 550),
+                Location = new Point(50, 400),
                 BackColor = Color.White // Neutral background color
             };
 
-            
+
 
             ChartArea chartArea = new ChartArea("MainArea")
             {
@@ -48,23 +49,11 @@ namespace Meme_Oven_Data.Pages
                         },
 
                 AxisY = {
-                            Title = "Temperature (°C)",
+                            Title = "Cuts per 15 minutes",
                             TitleFont = new Font("Arial", 18, FontStyle.Bold),
                             LabelStyle = { ForeColor = Color.Black },
                             MajorGrid = { LineColor = Color.LightGray }
-                        },
-                AxisY2 = new Axis
-                        {
-                            Title = "On/Off Oven State",
-                            TitleFont = new Font("Arial", 18, FontStyle.Bold),
-                            Interval = 1,
-                            Enabled = AxisEnabled.True,
-                            LabelStyle = { ForeColor = Color.Black },
-                            MajorGrid = { LineColor = Color.Transparent },
-                            LineColor = Color.Black,
-                            Minimum = 0, // Set minimum to 0
-                            Maximum = 2  // Set maximum to 2 for better visualization
-                        }
+                        }               
             };
 
             chart.ChartAreas.Add(chartArea);
@@ -73,11 +62,11 @@ namespace Meme_Oven_Data.Pages
             chart.BackColor = Color.White;
 
             // Add series
-            this.series = new Series("DataSeries")
+           this.series = new Series("CutsPer15Min")
             {
-                ChartType = SeriesChartType.Line,
+                ChartType = SeriesChartType.Column,
                 BorderWidth = 2,
-                Color = Color.Blue // Line color
+                Color = Color.Red
             };
 
             // Configure the On/Off series
@@ -114,28 +103,22 @@ namespace Meme_Oven_Data.Pages
         {
             try
             {
-                // Retrieve the last 100 records, ordered by Date descending
-                var data = _dbContext.TempOven2
-                    .OrderByDescending(x => x.Date) // Get the most recent records
-                    .Take(100)                     // Limit to 100 records
-                    .OrderBy(x => x.Date)          // Reorder to ascending by Date for proper charting
-                     .Select(x => new
-                     {
-                         x.Id,
-                         x.Date,
-                         x.Temperature,
-                         x.OnOffOven
-                     })
-                    .ToList();
+                DateTime oneHourAgo = DateTime.Now.AddHours(-1);
+                var data = _dbContext.TempOven1
+                   .Where(x => x.Cut == 2 && x.Date >= oneHourAgo)
+                   .OrderByDescending(x => x.Date) // Get the most recent records
+                                                   //.Take(20)                               //.Take(1000)                     // Limit to 100 records
+                   .OrderBy(x => x.Date)          // Reorder to ascending by Date for proper charting
+                   .ToList();
 
+                
                 this.series.Points.Clear();
-                this.onOffSeries.Points.Clear();
-
+                
                 // Add data points to the chart
                 for (int i = 1; i < data.Count; i++)
                 {
-                    this.series.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).Temperature);
-                    this.onOffSeries.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).OnOffOven);
+                    this.series.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).Cut);
+                    // this.onOffSeries.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).OnOffOven);
                 }
             }
             catch (Exception ex)
@@ -150,21 +133,22 @@ namespace Meme_Oven_Data.Pages
             var dateTimePickerFrom = datePickerFrom.Value.Date + TimePickerFrom.Value.TimeOfDay;
             var dateTimePickerTo = datePickerTo.Value.Date + timePickerTo.Value.TimeOfDay;
 
-            var data = _dbContext.TempOven2
-                    .Where(x => x.Date >= dateTimePickerFrom && x.Date <= dateTimePickerTo)
+            var data = _dbContext.TempOven1
+                    .Where(x => x.Date >= dateTimePickerFrom && x.Date <= dateTimePickerTo && x.Cut == 1)
                     .OrderByDescending(x => x.Date) // Get the most recent records
                                                     //.Take(1000)                     // Limit to 100 records
                     .OrderBy(x => x.Date)          // Reorder to ascending by Date for proper charting
                     .ToList();
 
+            var count = data.Count;
+
             this.series.Points.Clear();
-            this.onOffSeries.Points.Clear();
 
             // Add data points to the chart
             for (int i = 1; i < data.Count; i++)
             {
-                this.series.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).Temperature);
-                this.onOffSeries.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).OnOffOven);
+                this.series.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).Cut);
+
             }
         }
 

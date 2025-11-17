@@ -58,6 +58,7 @@ namespace Meme_Oven_Data
             services.AddScoped<IPLC, PLC>();
             services.AddScoped<DesOven1>();
             services.AddScoped<DesOven2>();
+            services.AddScoped<MachinePlan>();
 
         }
     }

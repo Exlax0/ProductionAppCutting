@@ -53,9 +53,9 @@
             txt1.ForeColor = Color.Red;
             txt1.Location = new Point(20, 13);
             txt1.Name = "txt1";
-            txt1.Size = new Size(245, 30);
+            txt1.Size = new Size(242, 30);
             txt1.TabIndex = 1;
-            txt1.Text = "Θερμοκασίες Φούρνου 1";
+            txt1.Text = "Καταγραφές Μηχανής 1";
             // 
             // ChartOven1
             // 
@@ -78,6 +78,7 @@
             // Update1ChartTimer
             // 
             Update1ChartTimer.Enabled = true;
+            Update1ChartTimer.Interval = 1000;
             Update1ChartTimer.Tick += Update1ChartTimer_Tick;
             // 
             // datePickerFrom

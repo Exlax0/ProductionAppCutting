@@ -25,7 +25,7 @@ namespace Meme_Oven_Data.Repository
         public String Name { get; set; }
 
         [Column("Cut")]
-        public Int64 Cut { get; set; }
+        public Int32 Cut { get; set; }
 
     }
 }
