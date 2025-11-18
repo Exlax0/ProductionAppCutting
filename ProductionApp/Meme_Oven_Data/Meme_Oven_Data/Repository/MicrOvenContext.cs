@@ -20,5 +20,9 @@ namespace Meme_Oven_Data.Repository
 
         public DbSet<MachinePlan> MachinePlan { get; set; }
 
+        public DbSet<StopReason> StopReasons { get; set; }
+        public DbSet<MachineStopEvent> MachineStopEvents { get; set; }
+
+
     }
 }

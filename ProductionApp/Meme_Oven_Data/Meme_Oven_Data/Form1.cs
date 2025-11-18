@@ -35,7 +35,7 @@ namespace Meme_Oven_Data
 
 
         public Form1(MicrOvenContext dbContext,
-                    IPLC plc, 
+                    IPLC plc,
                     IConfiguration configuration,
                     DesOven1 desOven1,
                     DesOven2 desOven2,
@@ -57,6 +57,13 @@ namespace Meme_Oven_Data
             AddDesOven2Page();
             AddedSettings();
 
+            this.lblTime = new Label
+            {
+                AutoSize = true,
+                BackColor = Color.Transparent,
+                Font = new Font("Segoe UI", 25, FontStyle.Bold),
+                ForeColor = Color.CadetBlue
+            };
 
 
             this.Testbutton = new Button
@@ -66,6 +73,11 @@ namespace Meme_Oven_Data
             };
             this.Testbutton.Show();
 
+        }
+
+        private void InitTimeLabel()
+        {
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -156,7 +168,7 @@ namespace Meme_Oven_Data
                     {
                         Date = DateTime.Now,
                         Machine = "Cutting - Machine 01",
-                        Name = DataTags.CurrentOperator1?? "Unkown",
+                        Name = DataTags.CurrentOperator1 ?? "Unkown",
                         Cut = 1
                     };
 
@@ -171,7 +183,7 @@ namespace Meme_Oven_Data
                     {
                         Date = DateTime.Now,
                         Machine = "Cutting - Machine 02",
-                        Name = DataTags.CurrentOperator2?? "Unkown",
+                        Name = DataTags.CurrentOperator2 ?? "Unkown",
                         Cut = 2
                     };
 
@@ -311,6 +323,11 @@ namespace Meme_Oven_Data
             Settings.BringToFront();
             Settings.Location = new Point(0, 0);
             Settings.Size = new Size(1720, 980);
+        }
+
+        private void tmrLiveTime_Tick(object sender, EventArgs e)
+        {
+            InitTimeLabel();
         }
     }
 }

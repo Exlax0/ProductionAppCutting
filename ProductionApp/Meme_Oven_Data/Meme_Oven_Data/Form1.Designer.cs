@@ -63,11 +63,13 @@ namespace Meme_Oven_Data
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             InfoPanel = new Panel();
+            lblTime = new Label();
             pictureBox3 = new PictureBox();
             MainPanel = new Panel();
             pictureBox2 = new PictureBox();
             ReadData1 = new System.Windows.Forms.Timer(components);
             WriteToSQL = new System.Windows.Forms.Timer(components);
+            tmrLiveTime = new System.Windows.Forms.Timer(components);
             NavPanel.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -189,12 +191,22 @@ namespace Meme_Oven_Data
             // InfoPanel
             // 
             InfoPanel.BackColor = Color.FromArgb(150, 150, 200);
+            InfoPanel.Controls.Add(lblTime);
             InfoPanel.Controls.Add(pictureBox3);
             InfoPanel.Dock = DockStyle.Top;
             InfoPanel.Location = new Point(200, 0);
             InfoPanel.Name = "InfoPanel";
             InfoPanel.Size = new Size(1720, 100);
             InfoPanel.TabIndex = 1;
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Location = new Point(1502, 71);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(34, 15);
+            lblTime.TabIndex = 1;
+            lblTime.Text = "Time";
             // 
             // pictureBox3
             // 
@@ -235,6 +247,12 @@ namespace Meme_Oven_Data
             WriteToSQL.Interval = 2000;
             WriteToSQL.Tick += WriteToSQL_Tick;
             // 
+            // tmrLiveTime
+            // 
+            tmrLiveTime.Enabled = true;
+            tmrLiveTime.Interval = 1000;
+            tmrLiveTime.Tick += tmrLiveTime_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -253,6 +271,7 @@ namespace Meme_Oven_Data
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             InfoPanel.ResumeLayout(false);
+            InfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             MainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -279,5 +298,7 @@ namespace Meme_Oven_Data
         private PictureBox pictureBox3;
         private Button btInfo;
         private Button btSettings;
+        private Label lblTime;
+        private System.Windows.Forms.Timer tmrLiveTime;
     }
 }

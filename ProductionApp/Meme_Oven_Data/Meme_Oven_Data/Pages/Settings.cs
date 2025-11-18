@@ -19,12 +19,13 @@ namespace Meme_Oven_Data.Pages
         private readonly MicrOvenContext _dbContext;
         private ComboBox cmbMachine;
         private MaskedTextBox dtAStart, dtAEnd, dtBStart, dtBEnd, dtCStart, dtCEnd;
-        private Button btnSave,btStoreName;
+        private Button btnSave,btStoreName, btnSaveStopReasons;
         private TextBox txtUserName;
         private DataGridView gridNames;
         private Label lblUserName;
-        private DataGridView dgvOperators;
+        private DataGridView dgvOperators, dgvStopReasons;
         private BindingSource operatorsBindingSource = new BindingSource();
+
 
         public Settings(MicrOvenContext dbContext)
         {
@@ -33,6 +34,7 @@ namespace Meme_Oven_Data.Pages
             InitControls();
             LoadMachines();
             LoadOperatorsGrid();
+            LoadStopReasonsGrid();
         }
 
         private void LoadOperatorsGrid()
@@ -114,6 +116,8 @@ namespace Meme_Oven_Data.Pages
             SaveShift("C", "Shift C", dtCStart, dtCEnd);
 
             _dbContext.SaveChanges();
+            _dbContext.ChangeTracker.Clear();
+            _dbContext.Operators.Load();
 
             MessageBox.Show("Βάρδια αποθηκεύτηκα για  " + machine);
         }
@@ -186,7 +190,7 @@ namespace Meme_Oven_Data.Pages
             // Machine selector
             cmbMachine = new ComboBox
             {
-                Location = new Point(50, 30),
+                Location = new Point(80, 310),
                 Size = new Size(250, 30),
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Font = new Font("Segoe UI", 12)
@@ -195,9 +199,9 @@ namespace Meme_Oven_Data.Pages
             this.Controls.Add(cmbMachine);
 
             // Labels
-            var lblA = new Label { Text = "Βάρδια A", Location = new Point(50, 90), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold),ForeColor = Color.GreenYellow };
-            var lblB = new Label { Text = "Βάρδια B", Location = new Point(50, 140), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.GreenYellow };
-            var lblC = new Label { Text = "Βάρδια C", Location = new Point(50, 190), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.GreenYellow };
+            var lblA = new Label { Text = "Βάρδια A", Location = new Point(80, 380), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold),ForeColor = Color.GreenYellow };
+            var lblB = new Label { Text = "Βάρδια B", Location = new Point(80, 430), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.GreenYellow };
+            var lblC = new Label { Text = "Βάρδια C", Location = new Point(80, 480), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.GreenYellow };
 
             this.Controls.Add(lblA);
             this.Controls.Add(lblB);
@@ -232,16 +236,16 @@ namespace Meme_Oven_Data.Pages
             }
 
             // Shift A time pickers
-            dtAStart = MakeMaskedTextBox(new Point(140, 85));
-            dtAEnd = MakeMaskedTextBox(new Point(220, 85));
+            dtAStart = MakeMaskedTextBox(new Point(170, 380));
+            dtAEnd = MakeMaskedTextBox(new Point(250, 380));
             
             // Shift B
-            dtBStart = MakeMaskedTextBox(new Point(140, 135));
-            dtBEnd = MakeMaskedTextBox(new Point(220, 135));
+            dtBStart = MakeMaskedTextBox(new Point(170, 430));
+            dtBEnd = MakeMaskedTextBox(new Point(250, 430));
             
             // Shift C
-            dtCStart = MakeMaskedTextBox(new Point(140, 185));
-            dtCEnd = MakeMaskedTextBox(new Point(220, 185));
+            dtCStart = MakeMaskedTextBox(new Point(170, 480));
+            dtCEnd = MakeMaskedTextBox(new Point(250, 480));
             
             this.Controls.AddRange(new Control[] { dtAStart, dtAEnd, dtBStart, dtBEnd, dtCStart, dtCEnd });
                         
@@ -250,7 +254,7 @@ namespace Meme_Oven_Data.Pages
             btnSave = new Button
             {
                 Text = "Αποθήκευση Ωραρίου Βάρδιας",
-                Location = new Point(50, 240),
+                Location = new Point(80, 550),
                 Size = new Size(250, 50),
                 BackColor = Color.LightGreen,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
@@ -260,19 +264,19 @@ namespace Meme_Oven_Data.Pages
 
             txtUserName = new TextBox()
             {
-                Location = new Point(580,190),
+                Location = new Point(610,190),
                 Size =  new Size(120,35),
 
             };
 
-            lblUserName = new Label { Text = "Όνομα Χρήστη", Location = new Point(450, 190), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.BlueViolet };
+            lblUserName = new Label { Text = "Όνομα Χρήστη", Location = new Point(480, 190), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.BlueViolet };
             this.Controls.Add(lblUserName);
             this.Controls.Add(txtUserName);
 
             btStoreName = new Button
             {
                 Text = "Αποθήκευση Νέου Χειριστή",
-                Location = new Point(450, 240),
+                Location = new Point(480, 240),
                 Size = new Size(250, 50),
                 BackColor = Color.LightBlue,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
@@ -280,9 +284,21 @@ namespace Meme_Oven_Data.Pages
             btStoreName.Click += btStoreName_Click;
             this.Controls.Add(btStoreName);
 
+            btnSaveStopReasons = new Button
+            {
+                Text = "Αποθήκευση Διακοπής Λειτουργίας",
+                Location = new Point(930, 550),
+                Size = new Size(250, 50),
+                BackColor = Color.OrangeRed,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold)
+            };
+
+            btnSaveStopReasons.Click += btnSaveStopReasons_Click;
+            this.Controls.Add(btnSaveStopReasons);
+
             dgvOperators = new DataGridView
             {
-                Location = new Point(450, 310),
+                Location = new Point(480, 310),
                 Size = new Size(250, 200),
                 AllowUserToAddRows = true,
                 AllowUserToDeleteRows = true,
@@ -294,11 +310,64 @@ namespace Meme_Oven_Data.Pages
                 MultiSelect = false
             };
 
+            dgvStopReasons = new DataGridView
+            {
+                Location = new Point(880, 310),
+                Size = new Size(350, 200),
+                AllowUserToAddRows = true,
+                AllowUserToDeleteRows = true,
+                ReadOnly = false,
+                AutoGenerateColumns = false,
+                BackgroundColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                MultiSelect = false
+            };
+
+            // στήλες
+            var colStopId = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Id",
+                HeaderText = "Id",
+                Name = "Id",
+                ReadOnly = true,
+                Width = 20
+            };
+
+            var colStopOperator = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "FullName",
+                HeaderText = "Χειριστής",
+                Name = "FullName",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            };
+
+            var colStopDesc = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Description",
+                HeaderText = "Περιγραφή",
+                Name = "Description",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            };
+
+
+            dgvStopReasons.RowHeadersVisible = false;
+            dgvStopReasons.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStopReasons.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            dgvStopReasons.EnableHeadersVisualStyles = false;
+            dgvStopReasons.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            dgvStopReasons.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+
+            dgvStopReasons.Columns.Add(colStopId);
+            //dgvStopReasons.Columns.Add(colStopOperator);
+            dgvStopReasons.Columns.Add(colStopDesc);
+            this.Controls.Add(dgvStopReasons);
+
             var btnSaveOperators = new Button
             {
                 Text = "Αποθήκευση αλλαγών χειριστών",
-                Location = new Point(450, 550),
-                Size = new Size(250, 40),
+                Location = new Point(480, 550),
+                Size = new Size(250, 50),
                 BackColor = Color.IndianRed,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold)
             };
@@ -369,6 +438,25 @@ namespace Meme_Oven_Data.Pages
             }
         }
 
+        private BindingSource stopReasonsBindingSource = new BindingSource();
+
+        private void LoadStopReasonsGrid()
+        {
+            _dbContext.StopReasons.Load();
+
+            stopReasonsBindingSource.DataSource =
+                _dbContext.StopReasons.Local.ToBindingList();
+
+            dgvStopReasons.DataSource = stopReasonsBindingSource;
+            // Id read-only, Description editable, IsActive editable, Code optional
+        }
+
+        private void btnSaveStopReasons_Click(object sender, EventArgs e)
+        {
+            dgvStopReasons.EndEdit();
+            stopReasonsBindingSource.EndEdit();
+            _dbContext.SaveChanges();
+        }
 
 
     }
