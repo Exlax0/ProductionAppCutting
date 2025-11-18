@@ -39,11 +39,19 @@ namespace Meme_Oven_Data
         Label lblPlanHour;
         Label lblPlanShift;
 
+        private ComboBox cmbOperator;
+        private Button btnChangeOperator;
+        private Label lblCurrentOperator;
+
+        private readonly BindingSource _operatorBindingSource = new BindingSource();
+    
+
         public DesOven1(MicrOvenContext dbContext)
         {
             _dbContext = dbContext;
-            //_plc = plc;
             InitializeComponent();
+            InitOperatorControls();
+            LoadOperators();
 
             this.btSetValues = new Button()
             {
@@ -240,6 +248,79 @@ namespace Meme_Oven_Data
             //UpdateChart();
             this.Controls.Add(chart);
         }
+
+        private void InitOperatorControls()
+        {
+            // Label τρέχον χειριστή
+            lblCurrentOperator = new Label
+            {
+                Text = "Τρέχων Χειριστής: (κανένας)",
+                Location = new Point(390, 55),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                ForeColor = Color.LightPink
+            };
+            this.Controls.Add(lblCurrentOperator);
+
+            // ComboBox χειριστών
+            cmbOperator = new ComboBox
+            {
+                Location = new Point(20, 50),
+                Size = new Size(200, 30),
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 10)
+            };
+            cmbOperator.DataSource = _operatorBindingSource;
+            cmbOperator.DisplayMember = "FullName";
+            this.Controls.Add(cmbOperator);
+
+            // Button αλλαγής χειριστή
+            btnChangeOperator = new Button
+            {
+                Text = "Αλλαγή Χειριστή",
+                Location = new Point(230, 50),
+                Size = new Size(150, 30),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                BackColor = Color.LightGreen
+            };
+            btnChangeOperator.Click += BtnChangeOperator_Click;
+            this.Controls.Add(btnChangeOperator);
+        }
+
+        private void LoadOperators()
+        {
+            _dbContext.Operators.Load();
+
+            _operatorBindingSource.DataSource =
+                _dbContext.Operators.Local
+                          .OrderBy(o => o.FullName)
+                          .ToList();
+
+            if (cmbOperator.Items.Count > 0)
+                cmbOperator.SelectedIndex = 0;   // προαιρετικά
+        }
+
+
+        private void BtnChangeOperator_Click(object sender, EventArgs e)
+        {
+            if (cmbOperator.SelectedItem is Operators op)
+            {
+                DataTags.CurrentOperator1 = op.FullName;
+
+                lblCurrentOperator.Text = $"Τρέχων Χειριστής: {DataTags.CurrentOperator1}";
+
+                MessageBox.Show(
+                    $"Ο νέος χειριστής του μηχανήματος 1 είναι: {DataTags.CurrentOperator1}",
+                    "Αλλαγή χειριστή",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Παρακαλώ επιλέξτε χειριστή.");
+            }
+        }
+
 
         private void TxtNumericOnly_KeyPress(object sender, KeyPressEventArgs e)
         {

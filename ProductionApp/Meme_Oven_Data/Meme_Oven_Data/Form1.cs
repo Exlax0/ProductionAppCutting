@@ -156,7 +156,7 @@ namespace Meme_Oven_Data
                     {
                         Date = DateTime.Now,
                         Machine = "Cutting - Machine 01",
-                        Name = "gpapianos",
+                        Name = DataTags.CurrentOperator1?? "Unkown",
                         Cut = 1
                     };
 
@@ -171,7 +171,7 @@ namespace Meme_Oven_Data
                     {
                         Date = DateTime.Now,
                         Machine = "Cutting - Machine 02",
-                        Name = "gpapianos",
+                        Name = DataTags.CurrentOperator2?? "Unkown",
                         Cut = 2
                     };
 
