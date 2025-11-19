@@ -201,12 +201,13 @@ namespace Meme_Oven_Data
             // 
             // lblTime
             // 
+            lblTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTime.AutoSize = true;
-            lblTime.Location = new Point(1502, 71);
+            lblTime.Location = new Point(1257, 66);
             lblTime.Name = "lblTime";
-            lblTime.Size = new Size(34, 15);
+            lblTime.Size = new Size(143, 15);
             lblTime.TabIndex = 1;
-            lblTime.Text = "Time";
+            lblTime.Text = "Τρίτη 19/11/2025 18:42:15";
             // 
             // pictureBox3
             // 

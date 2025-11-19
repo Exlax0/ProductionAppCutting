@@ -10,11 +10,16 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using System.Globalization;
+using System.Threading;
+
 
 namespace Meme_Oven_Data
 {
+
     public partial class Form1 : Form
     {
+
 
         public static Boolean CuttingPulse1 { get; set; }
         private bool _prevCuttingPulse1 = false;
@@ -57,13 +62,17 @@ namespace Meme_Oven_Data
             AddDesOven2Page();
             AddedSettings();
 
-            this.lblTime = new Label
-            {
-                AutoSize = true,
-                BackColor = Color.Transparent,
-                Font = new Font("Segoe UI", 25, FontStyle.Bold),
-                ForeColor = Color.CadetBlue
-            };
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("el-GR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("el-GR");
+
+
+            //this.lblTime = new Label
+            //{
+            //    AutoSize = true,
+            //    BackColor = Color.Transparent,
+            //    Font = new Font("Segoe UI", 25, FontStyle.Bold),
+            //    ForeColor = Color.CadetBlue
+            //};
 
 
             this.Testbutton = new Button
@@ -77,7 +86,12 @@ namespace Meme_Oven_Data
 
         private void InitTimeLabel()
         {
-            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblTime.Text = DateTime.Now.ToString("dddd dd/MM/yyyy  HH:mm:ss", new CultureInfo("el-GR")
+);
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.Transparent;
+            lblTime.Font = new Font("Segoe UI", 20, FontStyle.Bold);
+            lblTime.ForeColor = Color.White;
         }
 
         private void Form1_Load(object sender, EventArgs e)

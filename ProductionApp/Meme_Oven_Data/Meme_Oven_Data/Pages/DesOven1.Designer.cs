@@ -78,9 +78,9 @@
             // 
             search_btn.Location = new Point(1015, 21);
             search_btn.Name = "search_btn";
-            search_btn.Size = new Size(75, 23);
+            search_btn.Size = new Size(84, 23);
             search_btn.TabIndex = 5;
-            search_btn.Text = "Search";
+            search_btn.Text = "Αναζήτηση";
             search_btn.UseVisualStyleBackColor = true;
             search_btn.Click += search_btn_Click;
             // 
@@ -106,7 +106,7 @@
             // 
             Live_btn.Location = new Point(1122, 21);
             Live_btn.Name = "Live_btn";
-            Live_btn.Size = new Size(75, 23);
+            Live_btn.Size = new Size(91, 23);
             Live_btn.TabIndex = 8;
             Live_btn.Text = "Live";
             Live_btn.UseVisualStyleBackColor = true;
