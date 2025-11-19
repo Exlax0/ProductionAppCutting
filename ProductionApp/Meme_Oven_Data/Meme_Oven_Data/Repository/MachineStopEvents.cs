@@ -17,7 +17,7 @@ namespace Meme_Oven_Data.Repository
         public string Machine { get; set; }
         public int StopReasonId { get; set; }
         public DateTime StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
+        public DateTime EndTime { get; set; }
         public string OperatorName { get; set; }
         public string Comment { get; set; }
 

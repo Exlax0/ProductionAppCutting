@@ -189,8 +189,19 @@ namespace Meme_Oven_Data
                 XValueType = ChartValueType.DateTime
             };
 
-            
-            
+            var stopsSeries = new Series("Stops")
+            {
+                ChartType = SeriesChartType.RangeColumn,
+                XValueType = ChartValueType.DateTime,
+                Color = Color.FromArgb(80, Color.Red),
+                YValuesPerPoint = 2,        // range: from-Y, to-Y
+                IsVisibleInLegend = false
+            };
+            stopsSeries["PointWidth"] = "1.0";
+            chart.Series.Add(stopsSeries);
+
+
+
 
 
             ChartArea chartArea = new ChartArea("MainArea")
@@ -548,27 +559,46 @@ namespace Meme_Oven_Data
             {
                 DateTime oneHourAgo = DateTime.Now.AddHours(-1);
                 var data = _dbContext.TempOven1
-                   .Where(x =>  x.Cut == 1 && x.Date >= oneHourAgo)
-                   .OrderByDescending(x => x.Date) // Get the most recent records
-                    //.Take(20)                               //.Take(1000)                     // Limit to 100 records
-                   .OrderBy(x => x.Date)          // Reorder to ascending by Date for proper charting
+                   .Where(x => x.Cut == 1 && x.Date >= oneHourAgo)
+                   .OrderBy(x => x.Date)
                    .ToList();
 
                 TotalCounterMachine1 = data.Count();
                 this.series.Points.Clear();
-                
-                // Add data points to the chart
-                for (int i = 1; i < data.Count; i++)
+
+                foreach (var item in data)
                 {
-                    this.series.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).Cut);
-                    // this.onOffSeries.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).OnOffOven);
+                    this.series.Points.AddXY(item.Date, item.Cut);
                 }
+
+                // ----------------------------------------------------------
+                // 🔥 ΝΕΟ: Εύρος χρόνου base από το γράφημα
+                // ----------------------------------------------------------
+                if (series.Points.Count > 0)
+                {
+                    double minX = series.Points.Min(p => p.XValue);
+                    double maxX = series.Points.Max(p => p.XValue);
+
+                    DateTime from = DateTime.FromOADate(minX);
+                    DateTime to = DateTime.FromOADate(maxX);
+
+                    AddStopEventsToChart(from, to);
+                }
+                else
+                {
+                    // Δεν έχει δεδομένα → καθάρισε τις κόκκινες λωρίδες
+                    chart.ChartAreas["MainArea"].AxisX.StripLines.Clear();
+                }
+                // ----------------------------------------------------------
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error updating chart: {ex.Message}");
             }
         }
+
+
+
 
         private void btSetValues_Click(object sender, EventArgs e)
         {
@@ -599,6 +629,41 @@ namespace Meme_Oven_Data
             _dbContext.SaveChanges();
                         
         }
+        private void AddStopEventsToChart(DateTime from, DateTime to)
+        {
+            var stopsSeries = chart.Series["Stops"];
+            stopsSeries.Points.Clear();
+
+            var events = _dbContext.MachineStopEvents
+                .Include(e => e.StopReason)
+                .Where(e => e.Machine == MachineName &&
+                            e.StartTime < to &&
+                            e.EndTime > from)
+                .OrderBy(e => e.StartTime)
+                .ToList();
+
+            foreach (var evt in events)
+            {
+                DateTime start = evt.StartTime;
+                DateTime end = evt.EndTime;
+
+                if (end <= start)
+                    end = start.AddMinutes(1);
+
+                var p = new DataPoint
+                {
+                    XValue = start.ToOADate(),
+                    ToolTip = evt.StopReason?.Description ?? "Stop"
+                };
+
+                // range: Y = 0 → 1
+                p.YValues = new double[] { 0.0, 1.0 };
+
+                stopsSeries.Points.Add(p);
+            }
+        }
+
+
 
         private void Update1ChartTimer_Tick(object sender, EventArgs e)
         {
@@ -611,6 +676,8 @@ namespace Meme_Oven_Data
 
             DateTime from = currentHourStart.AddHours(-1);
             DateTime to = currentHourStart;
+
+            //AddStopEventsToChart(from, to);
 
             int totalCounterMachine1 = _dbContext.TempOven1
                 .Count(x => x.Machine == "Cutting - Machine 01"
@@ -724,6 +791,8 @@ namespace Meme_Oven_Data
                 lblEfficiency.ForeColor = Color.Red;
                 lblEfficiency.BackColor = Color.FromArgb(60, 20, 20);
             }
+
+            AddStopEventsToChart(dateTimePickerFrom, dateTimePickerTo);
 
         }
 
