@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\pages\\desoven1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\pages\\desoven1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\pages\\desoven1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\pages\\desoven1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\pages\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\pages\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\meme_oven_data\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\pages\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\pages\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\repository\\microvencontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,6 +31,14 @@
       "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\repository\\datatags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\pages\\desoven1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\pages\\desoven1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\repository\\stopreasons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\repository\\stopreasons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|e:\\works all\\csharp\\productionappcutting\\productionapp\\meme_oven_data\\meme_oven_data\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{5B02D628-63DB-44AD-8A3B-FD3A8B07AA7F}|Meme_Oven_Data\\Meme_Oven_Data.csproj|solutionrelative:meme_oven_data\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
@@ -46,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 205,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\appsettings.json",
               "RelativeDocumentMoniker": "Meme_Oven_Data\\appsettings.json",
@@ -62,8 +66,25 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
+              "Title": "StopReasons.cs",
+              "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Repository\\StopReasons.cs",
+              "RelativeDocumentMoniker": "Meme_Oven_Data\\Repository\\StopReasons.cs",
+              "ToolTip": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Repository\\StopReasons.cs",
+              "RelativeToolTip": "Meme_Oven_Data\\Repository\\StopReasons.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T09:42:30.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DesOven1.cs [Design]",
               "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\DesOven1.cs",
               "RelativeDocumentMoniker": "Meme_Oven_Data\\Pages\\DesOven1.cs",
@@ -72,10 +93,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T09:23:54.119Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
@@ -104,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "MicrOvenContext.cs",
               "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Repository\\MicrOvenContext.cs",
               "RelativeDocumentMoniker": "Meme_Oven_Data\\Repository\\MicrOvenContext.cs",
@@ -117,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Settings.cs [Design]",
               "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\Settings.cs",
               "RelativeDocumentMoniker": "Meme_Oven_Data\\Pages\\Settings.cs",
@@ -129,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "DataTags.cs",
               "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Repository\\DataTags.cs",
               "RelativeDocumentMoniker": "Meme_Oven_Data\\Repository\\DataTags.cs",
@@ -137,32 +154,54 @@
               "RelativeToolTip": "Meme_Oven_Data\\Repository\\DataTags.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T14:41:15.425Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Settings.cs",
-              "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\Settings.cs",
-              "RelativeDocumentMoniker": "Meme_Oven_Data\\Pages\\Settings.cs",
-              "ToolTip": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\Settings.cs",
-              "RelativeToolTip": "Meme_Oven_Data\\Pages\\Settings.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAMsAAAC3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T09:37:47.382Z",
+              "WhenOpened": "2025-11-17T14:41:15.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DesOven1.cs",
               "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\DesOven1.cs",
               "RelativeDocumentMoniker": "Meme_Oven_Data\\Pages\\DesOven1.cs",
               "ToolTip": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\DesOven1.cs",
               "RelativeToolTip": "Meme_Oven_Data\\Pages\\DesOven1.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAwwDMAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAANkCAAAAAAAAAADwv+sCAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T10:02:49.789Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "d1bb052d-9cc3-4b12-a353-858de2340731",
+        "Display": 1,
+        "X": 78,
+        "Y": 113,
+        "Width": 1503,
+        "Height": 783,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\Settings.cs",
+              "RelativeDocumentMoniker": "Meme_Oven_Data\\Pages\\Settings.cs",
+              "ToolTip": "E:\\WORKS ALL\\Csharp\\ProductionAppCutting\\ProductionApp\\Meme_Oven_Data\\Meme_Oven_Data\\Pages\\Settings.cs",
+              "RelativeToolTip": "Meme_Oven_Data\\Pages\\Settings.cs",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAgwP8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T09:37:47.382Z",
               "EditorCaption": ""
             }
           ]

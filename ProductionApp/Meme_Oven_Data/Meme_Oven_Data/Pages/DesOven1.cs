@@ -39,6 +39,12 @@ namespace Meme_Oven_Data
         Label lblPlanHour;
         Label lblPlanShift;
 
+        private ComboBox StopReasons;
+        private MaskedTextBox StartEvent,StopEvent;
+        private Button btSaveStopEvent;
+        private Label StartTimeEvent, StopTimeEvent;
+
+
         private ComboBox cmbOperator;
         private Button btnChangeOperator;
         private Label lblCurrentOperator;
@@ -52,6 +58,8 @@ namespace Meme_Oven_Data
             InitializeComponent();
             InitOperatorControls();
             LoadOperators();
+            InitStopEvent();
+            LoadStopReasons();
 
             this.btSetValues = new Button()
             {
@@ -224,15 +232,7 @@ namespace Meme_Oven_Data
 
             
 
-            // Configure the On/Off series
-            this.onOffSeries = new Series("OnOffSeries")
-            {
-                ChartType = SeriesChartType.StepLine, // Binary data fits better with StepLine
-                BorderWidth = 2,
-                Color = Color.Red,
-                YAxisType = AxisType.Secondary // Use AxisY2
-            };
-
+           
 
             this.Controls.Add(lblPlanShift);
             this.Controls.Add(lblPlanHour);
@@ -244,10 +244,177 @@ namespace Meme_Oven_Data
             this.Controls.Add(btData);
             this.Controls.Add(btMain);
             this.chart.Series.Add(series);
-            this.chart.Series.Add(onOffSeries);
+           
             //UpdateChart();
             this.Controls.Add(chart);
         }
+
+        private void LoadStopReasons()
+        {
+            // Φόρτωσε από SQL στη μνήμη EF
+            _dbContext.StopReasons.Load();
+
+            // Δέσε τα δεδομένα στο ComboBox
+            StopReasons.DataSource = _dbContext.StopReasons.Local.ToBindingList();
+            StopReasons.DisplayMember = "Description";
+            StopReasons.ValueMember = "Id";
+
+            // Προαιρετικά: βάλε κενό default
+            StopReasons.SelectedIndex = -1;
+        }
+
+
+        private void InitStopEvent()
+        {
+            StopReasons = new ComboBox()
+            {
+                Location = new Point(20, 250),
+                Size = new Size(200, 30),
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 12)
+            };
+            StopReasons.SelectedIndexChanged += StopReasons_SelectedIndexChanged;
+            this.Controls.Add(StopReasons);
+
+            StopTimeEvent = new Label()
+            {
+                Text = "Ώρα Σταματήματος",
+                Location = new Point(400, 220),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                ForeColor = Color.Red
+            };
+
+            StartTimeEvent = new Label()
+            {
+                Text = "Ώρα Εκκίνησης",
+                Location = new Point(230, 220),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                ForeColor = Color.GreenYellow
+            };
+
+
+            this.Controls.Add(StartTimeEvent);
+            this.Controls.Add(StopTimeEvent);
+
+            MaskedTextBox MakeMaskedTextBox(Point p)
+            {
+                return new MaskedTextBox("00:00")
+                {
+                    Location = p,
+                    Size = new Size(70, 30),
+                    Font = new Font("Segoe UI", 10),
+                    TextAlign = HorizontalAlignment.Center,
+                    PromptChar = '_'    // δείχνει κενό ως _
+                };
+            }
+
+            StopEvent = MakeMaskedTextBox(new Point(430,250));
+            StartEvent = MakeMaskedTextBox(new Point(260, 250));
+
+            this.Controls.Add(StopEvent);
+            this.Controls.Add(StartEvent);
+
+            btSaveStopEvent = new Button()
+            {
+                Text = "Αποθήκευση Αιτίας Παύσης",
+                Location = new Point(200, 310),
+                Size = new Size(250, 40),
+                BackColor = Color.Bisque,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold)
+            };
+            btSaveStopEvent.Click += btSaveStopEvent_Click;
+            this.Controls.Add(btSaveStopEvent);
+        }
+
+        private void btSaveStopEvent_Click(object sender, EventArgs e)
+        {
+            // 1) Έλεγχος αν έχει επιλεγεί αιτία στάσης
+            if (StopReasons.SelectedItem is not StopReason reason)
+            {
+                MessageBox.Show("Παρακαλώ επιλέξτε αιτία παύσης.",
+                                "Αιτία παύσης",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2) Parse ωρών από τα MaskedTextBox
+            if (!TimeSpan.TryParse(StopEvent.Text, out var stopTime))
+            {
+                MessageBox.Show("Μη έγκυρη ώρα σταματήματος.",
+                                "Λάθος ώρα",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!TimeSpan.TryParse(StartEvent.Text, out var startTime))
+            {
+                MessageBox.Show("Μη έγκυρη ώρα εκκίνησης.",
+                                "Λάθος ώρα",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 3) Συνθέτουμε DateTime (χρησιμοποιώ την σημερινή ημερομηνία)
+            var today = DateTime.Today;
+            var dtStop = today.Add(stopTime);
+            var dtStart = today.Add(startTime);
+
+            // Αν δεν θες να δέχεσαι "αναστροφές":
+            if (dtStart > dtStop)
+            {
+                MessageBox.Show("Η ώρα εκκίνησης δεν μπορεί να είναι μετά την ώρα σταματήματος.",
+                                "Λάθος ώρες",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 4) Φτιάχνουμε το event
+            var evt = new MachineStopEvent
+            {
+                Machine = "Cutting - Machine 01",
+                StopReasonId = reason.Id,
+                StartTime = dtStart,
+                EndTime = dtStop,
+                OperatorName = DataTags.CurrentOperator1 ?? "Unknown",
+                Comment = ""   // μπορείς αργότερα να βάλεις TextBox για σχόλιο
+            };
+
+            // 5) Αποθήκευση στη βάση
+            _dbContext.MachineStopEvents.Add(evt);
+            _dbContext.SaveChanges();
+
+            MessageBox.Show("Η αιτία παύσης αποθηκεύτηκε επιτυχώς.",
+                            "Καταχώρηση",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            // 6) Προαιρετικό reset
+            StopEvent.Text = "";
+            StartEvent.Text = "";
+            StopReasons.SelectedIndex = -1;
+        }
+
+
+
+        private void StopReasons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (StopReasons.SelectedItem == null)
+                return;
+
+            string desc = StopReasons.Text;
+
+            var reason = _dbContext.StopReasons
+                .FirstOrDefault(x => x.Description == desc);
+
+            // reason τώρα περιέχει το αντικείμενο StopReason
+        }
+
 
         private void InitOperatorControls()
         {
@@ -255,7 +422,7 @@ namespace Meme_Oven_Data
             lblCurrentOperator = new Label
             {
                 Text = "Τρέχων Χειριστής: (κανένας)",
-                Location = new Point(390, 55),
+                Location = new Point(390, 155),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.LightPink
@@ -265,7 +432,7 @@ namespace Meme_Oven_Data
             // ComboBox χειριστών
             cmbOperator = new ComboBox
             {
-                Location = new Point(20, 50),
+                Location = new Point(20, 150),
                 Size = new Size(200, 30),
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Font = new Font("Segoe UI", 10)
@@ -278,7 +445,7 @@ namespace Meme_Oven_Data
             btnChangeOperator = new Button
             {
                 Text = "Αλλαγή Χειριστή",
-                Location = new Point(230, 50),
+                Location = new Point(230, 150),
                 Size = new Size(150, 30),
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 BackColor = Color.LightGreen
