@@ -55,7 +55,7 @@
             // Update1ChartTimer
             // 
             Update1ChartTimer.Enabled = true;
-            Update1ChartTimer.Interval = 1000;
+            Update1ChartTimer.Interval = 500;
             Update1ChartTimer.Tick += Update1ChartTimer_Tick;
             // 
             // datePickerFrom

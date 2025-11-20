@@ -557,9 +557,11 @@ namespace Meme_Oven_Data
         {
             try
             {
-                DateTime oneHourAgo = DateTime.Now.AddHours(-1);
+                DateTime now = DateTime.Now;
+                DateTime oneHourAgo = now.AddHours(-1);
+
                 var data = _dbContext.TempOven1
-                   .Where(x => x.Cut == 1 && x.Date >= oneHourAgo)
+                   .Where(x => x.Cut == 1 && x.Date >= oneHourAgo && x.Date <= now)
                    .OrderBy(x => x.Date)
                    .ToList();
 
@@ -571,31 +573,15 @@ namespace Meme_Oven_Data
                     this.series.Points.AddXY(item.Date, item.Cut);
                 }
 
-                // ----------------------------------------------------------
-                // 🔥 ΝΕΟ: Εύρος χρόνου base από το γράφημα
-                // ----------------------------------------------------------
-                if (series.Points.Count > 0)
-                {
-                    double minX = series.Points.Min(p => p.XValue);
-                    double maxX = series.Points.Max(p => p.XValue);
-
-                    DateTime from = DateTime.FromOADate(minX);
-                    DateTime to = DateTime.FromOADate(maxX);
-
-                    AddStopEventsToChart(from, to);
-                }
-                else
-                {
-                    // Δεν έχει δεδομένα → καθάρισε τις κόκκινες λωρίδες
-                    chart.ChartAreas["MainArea"].AxisX.StripLines.Clear();
-                }
-                // ----------------------------------------------------------
+                // 🔥 ΠΑΝΤΑ ίδιο εύρος με τις κοπές: τελευταία 1 ώρα
+                AddStopEventsToChart(oneHourAgo, now);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error updating chart: {ex.Message}");
             }
         }
+
 
 
 
@@ -650,18 +636,33 @@ namespace Meme_Oven_Data
                 if (end <= start)
                     end = start.AddMinutes(1);
 
+                string text = evt.StopReason?.Description ?? "Stop";
+
                 var p = new DataPoint
                 {
-                    XValue = start.ToOADate(),
-                    ToolTip = evt.StopReason?.Description ?? "Stop"
+                    XValue = start.ToOADate()
                 };
 
                 // range: Y = 0 → 1
                 p.YValues = new double[] { 0.0, 1.0 };
 
+                // Tooltip (όταν πας με το mouse)
+                p.ToolTip = $"{text}\n{start:HH:mm} - {end:HH:mm}";
+
+                // 🔹 Το κειμενάκι που θα φαίνεται πάνω στη μπάρα
+                p.Label = text;
+                p.LabelForeColor = Color.Black;
+                p.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                // προαιρετικά αν θες κάθετα:
+                // p.LabelAngle = -90;
+
                 stopsSeries.Points.Add(p);
             }
+
+            // προαιρετικά, για σιγουριά:
+            stopsSeries.IsValueShownAsLabel = true;
         }
+
 
 
 
