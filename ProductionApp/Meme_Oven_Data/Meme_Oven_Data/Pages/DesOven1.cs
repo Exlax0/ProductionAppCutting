@@ -593,6 +593,78 @@ namespace Meme_Oven_Data
 
         }
 
+        private void CountingPiecesPerShift()
+        {
+            try
+            {
+                string machineName = "Cutting - Machine 01";
+
+                DateTime now = DateTime.Now;
+                TimeSpan nowTime = now.TimeOfDay;
+
+                // 1. Load shift settings
+                var shifts = _dbContext.MachineShiftPlan
+                    .Where(x => x.Machine == machineName)
+                    .ToList();
+
+                if (!shifts.Any())
+                    return;
+
+                // 2. Detect current shift
+                var currentShift = shifts.FirstOrDefault(s =>
+                    // Normal shift
+                    (s.StartTime <= s.EndTime && nowTime >= s.StartTime && nowTime < s.EndTime)
+                    ||
+                    // Night shift
+                    (s.StartTime > s.EndTime && (nowTime >= s.StartTime || nowTime < s.EndTime))
+                );
+
+                if (currentShift == null)
+                    return;
+
+                // 3. Create shift start DateTime (handles night shift correctly)
+                DateTime shiftStart;
+
+                if (currentShift.StartTime <= currentShift.EndTime)
+                {
+                    shiftStart = now.Date + currentShift.StartTime;   // Same day
+                }
+                else
+                {
+                    // Night shift (22:00 → 06:00)
+                    shiftStart = (nowTime < currentShift.EndTime)
+                        ? now.Date.AddDays(-1) + currentShift.StartTime  // After midnight = started yesterday
+                        : now.Date + currentShift.StartTime;             // Before midnight = started today
+                }
+
+                // 4. Get all plan records for this machine during this shift
+                var shiftData = _dbContext.TempOven1
+                    .Where(x => x.Machine == machineName
+                                && x.Date >= shiftStart
+                                && x.Date <= now)
+                               // && x.Cut == 1)               // Only real cuts
+                    .ToList();
+
+                // 5. Calculate pieces produced this shift
+                int piecesProduced = shiftData.Sum(x => x.PiecesPerCut);
+
+                // 6. Calculate total expected pieces (if the shift plan has it)
+                int totalShiftTarget = currentShift.PiecesPlan;
+                // <-- Change to your column name in MachineShiftPlan
+
+                // 7. Update label
+                lblPiecesLiveShift.Text = $"{piecesProduced} / {totalShiftTarget}";
+
+                // Optional debug
+                Console.WriteLine($"Shift pieces: {piecesProduced} / {totalShiftTarget}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CountingPiecesPerShift: {ex.Message}");
+            }
+        }
+
+
 
         private void UpdateChart()
         {

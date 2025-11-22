@@ -79,7 +79,7 @@
             // 
             // search_btn
             // 
-            search_btn.Location = new Point(1015, 21);
+            search_btn.Location = new Point(1015, 15);
             search_btn.Name = "search_btn";
             search_btn.Size = new Size(84, 30);
             search_btn.TabIndex = 5;
@@ -109,7 +109,7 @@
             // 
             // Live_btn
             // 
-            Live_btn.Location = new Point(1122, 21);
+            Live_btn.Location = new Point(1122, 15);
             Live_btn.Name = "Live_btn";
             Live_btn.Size = new Size(91, 30);
             Live_btn.TabIndex = 8;

@@ -13,5 +13,7 @@ namespace Meme_Oven_Data.Repository
         public static string ShiftCode { get; set; }
         public static string CurrentOperator1 { get; set; } 
         public static string CurrentOperator2 { get; set; }
+
+        public static int Machine1PiecesPerShift { get; set; }
     }
 }
