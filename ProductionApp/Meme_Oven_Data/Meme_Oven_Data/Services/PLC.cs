@@ -25,7 +25,7 @@ namespace Meme_Oven_Data.Services
                 if (result == 0)
                 {
                     Console.WriteLine($"Connected to PLC at {ipAddress} (Rack: {rack}, Slot: {slot}).");
-                    MessageBox.Show("PLC connection successful.");
+                    //MessageBox.Show("PLC connection successful.");
                     return true;
                 }
                 else

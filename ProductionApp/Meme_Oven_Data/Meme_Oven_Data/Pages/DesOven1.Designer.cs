@@ -38,6 +38,7 @@
             timePickerTo = new DateTimePicker();
             Live_btn = new Button();
             tmrReadColor = new System.Windows.Forms.Timer(components);
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // txt1
@@ -60,6 +61,7 @@
             // 
             // datePickerFrom
             // 
+            datePickerFrom.Font = new Font("Arial", 10F);
             datePickerFrom.Format = DateTimePickerFormat.Short;
             datePickerFrom.Location = new Point(284, 19);
             datePickerFrom.Name = "datePickerFrom";
@@ -68,6 +70,7 @@
             // 
             // datePickerTo
             // 
+            datePickerTo.Font = new Font("Arial", 10F);
             datePickerTo.Format = DateTimePickerFormat.Short;
             datePickerTo.Location = new Point(664, 19);
             datePickerTo.Name = "datePickerTo";
@@ -78,7 +81,7 @@
             // 
             search_btn.Location = new Point(1015, 21);
             search_btn.Name = "search_btn";
-            search_btn.Size = new Size(84, 23);
+            search_btn.Size = new Size(84, 30);
             search_btn.TabIndex = 5;
             search_btn.Text = "Αναζήτηση";
             search_btn.UseVisualStyleBackColor = true;
@@ -86,6 +89,7 @@
             // 
             // timePickerFrom
             // 
+            timePickerFrom.Font = new Font("Arial", 10F);
             timePickerFrom.Format = DateTimePickerFormat.Time;
             timePickerFrom.Location = new Point(490, 19);
             timePickerFrom.Name = "timePickerFrom";
@@ -95,6 +99,7 @@
             // 
             // timePickerTo
             // 
+            timePickerTo.Font = new Font("Arial", 10F);
             timePickerTo.Format = DateTimePickerFormat.Time;
             timePickerTo.Location = new Point(870, 19);
             timePickerTo.Name = "timePickerTo";
@@ -106,7 +111,7 @@
             // 
             Live_btn.Location = new Point(1122, 21);
             Live_btn.Name = "Live_btn";
-            Live_btn.Size = new Size(91, 23);
+            Live_btn.Size = new Size(91, 30);
             Live_btn.TabIndex = 8;
             Live_btn.Text = "Live";
             Live_btn.UseVisualStyleBackColor = true;
@@ -147,5 +152,6 @@
         private DateTimePicker timePickerTo;
         private Button Live_btn;
         private System.Windows.Forms.Timer tmrReadColor;
+        private System.Windows.Forms.Timer timer1;
     }
 }

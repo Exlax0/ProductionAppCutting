@@ -40,11 +40,13 @@ namespace Meme_Oven_Data
         Label lblPlanHour;
         Label lblPlanShift;
         Label lblPiecesPerCut;
+        Label lblPiecesLiveShift;
 
         private ComboBox StopReasons;
         private MaskedTextBox StartEvent,StopEvent;
         private Button btSaveStopEvent;
         private Label StartTimeEvent, StopTimeEvent;
+
 
 
         private ComboBox cmbOperator;
@@ -62,11 +64,13 @@ namespace Meme_Oven_Data
             LoadOperators();
             InitStopEvent();
             LoadStopReasons();
+            InitLivePiecesCount();
+
 
             this.lblPiecesPerCut = new Label()
             {
                 Text = "Κομμάτια Ανά Κοπή",
-                Location = new Point(1300, 260),
+                Location = new Point(20, 360),
                 AutoSize = true,
                // Size = new Size(180, 35),
                 Font = new Font("Segoe UI", 16),
@@ -75,10 +79,10 @@ namespace Meme_Oven_Data
                 BorderStyle = BorderStyle.None
             };
             this.Controls.Add(lblPiecesPerCut);
-
+                                    
             this.txtPiecesPerCut = new NumericUpDown()
             {
-                Location = new Point(1520, 260),
+                Location = new Point(250, 360),
                 Size = new Size(75, 30),
                 Font = new Font("Segoe UI", 16),
                 BackColor = Color.White,
@@ -90,17 +94,18 @@ namespace Meme_Oven_Data
 
             this.btSetValues = new Button()
             {
-                Text = "Set Values",
-                Size = new Size(100, 25),
+                Text = "Αποθήκευση Τιμών",
+                Size = new Size(250, 40),
                 BackColor = Color.LightCyan,
-                ForeColor = Color.Green,
-                Location = new Point(1600, 220),
+                ForeColor = Color.Black,
+                Location = new Point(80, 420),
+                Font = new Font ("Segoe UI", 16),
                 Visible = true
             };
 
             this.txtPlanHour = new NumericUpDown()
             {
-                Location = new Point(1520, 220),
+                Location = new Point(250, 320),
                 Size = new Size(75, 30),
                 Font = new Font("Segoe UI", 16),
                 BackColor = Color.White,
@@ -114,7 +119,7 @@ namespace Meme_Oven_Data
             this.lblPlanHour = new Label()
             {
                 Text = "Κοπές την ώρα",
-                Location = new Point(1300, 220),
+                Location = new Point(20, 320),
                 Size = new Size(180, 35),
                 Font = new Font("Segoe UI", 16),
                 ForeColor = Color.Red,
@@ -125,7 +130,7 @@ namespace Meme_Oven_Data
 
             this.txtPlanShift = new NumericUpDown()
             {
-                Location = new Point(1520, 180),
+                Location = new Point(250, 280),
                 Size = new Size(75, 30),
                 Font = new Font("Segoe UI", 16),
                 BackColor = Color.White,
@@ -137,7 +142,7 @@ namespace Meme_Oven_Data
             this.lblPlanShift = new Label()
             {
                 Text ="Κοπές Βάρδιας",
-                Location = new Point(1300, 180),
+                Location = new Point(20, 280),
                 Size = new Size(180, 35),
                 Font = new Font("Segoe UI", 16),
                 ForeColor = Color.Red,
@@ -154,7 +159,7 @@ namespace Meme_Oven_Data
                 Font = new Font("Segoe UI", 14,FontStyle.Bold),
                 AutoSize = false,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(920, 220),
+                Location = new Point(340, 320),
                 Size = new Size(350,35),
                 BorderStyle = BorderStyle.FixedSingle,
                 Padding = new Padding(5),
@@ -301,12 +306,21 @@ namespace Meme_Oven_Data
             StopReasons.SelectedIndex = -1;
         }
 
-
+        private void InitLivePiecesCount()
+        {
+            lblPiecesLiveShift = new Label()
+            {
+                Location = new Point(1300,150),
+                AutoSize = true,
+                Font = new Font("Segoe UI",12),
+                Text = "Καμία Κοπή/Βάρδια"
+            };
+        }
         private void InitStopEvent()
         {
             StopReasons = new ComboBox()
             {
-                Location = new Point(20, 250),
+                Location = new Point(20, 150),
                 Size = new Size(200, 30),
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Font = new Font("Segoe UI", 12)
@@ -317,7 +331,7 @@ namespace Meme_Oven_Data
             StopTimeEvent = new Label()
             {
                 Text = "Ώρα Σταματήματος",
-                Location = new Point(400, 220),
+                Location = new Point(400, 120),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.Red
@@ -326,7 +340,7 @@ namespace Meme_Oven_Data
             StartTimeEvent = new Label()
             {
                 Text = "Ώρα Εκκίνησης",
-                Location = new Point(230, 220),
+                Location = new Point(230, 120),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.GreenYellow
@@ -348,8 +362,8 @@ namespace Meme_Oven_Data
                 };
             }
 
-            StopEvent = MakeMaskedTextBox(new Point(430,250));
-            StartEvent = MakeMaskedTextBox(new Point(260, 250));
+            StopEvent = MakeMaskedTextBox(new Point(430,150));
+            StartEvent = MakeMaskedTextBox(new Point(260, 150));
 
             this.Controls.Add(StopEvent);
             this.Controls.Add(StartEvent);
@@ -357,7 +371,7 @@ namespace Meme_Oven_Data
             btSaveStopEvent = new Button()
             {
                 Text = "Αποθήκευση Αιτίας Παύσης",
-                Location = new Point(200, 310),
+                Location = new Point(170, 210),
                 Size = new Size(250, 40),
                 BackColor = Color.Bisque,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
@@ -460,9 +474,9 @@ namespace Meme_Oven_Data
             lblCurrentOperator = new Label
             {
                 Text = "Τρέχων Χειριστής: (κανένας)",
-                Location = new Point(390, 155),
+                Location = new Point(1430, 20),
                 AutoSize = true,
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 ForeColor = Color.LightPink
             };
             this.Controls.Add(lblCurrentOperator);
@@ -470,10 +484,10 @@ namespace Meme_Oven_Data
             // ComboBox χειριστών
             cmbOperator = new ComboBox
             {
-                Location = new Point(20, 150),
-                Size = new Size(200, 30),
+                Location = new Point(1260, 20),
+                Size = new Size(160, 30),
                 DropDownStyle = ComboBoxStyle.DropDownList,
-                Font = new Font("Segoe UI", 10)
+                Font = new Font("Segoe UI", 12)
             };
             cmbOperator.DataSource = _operatorBindingSource;
             cmbOperator.DisplayMember = "FullName";
@@ -483,9 +497,9 @@ namespace Meme_Oven_Data
             btnChangeOperator = new Button
             {
                 Text = "Αλλαγή Χειριστή",
-                Location = new Point(230, 150),
-                Size = new Size(150, 30),
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Location = new Point(1380, 60),
+                Size = new Size(160, 30),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
                 BackColor = Color.LightGreen
             };
             btnChangeOperator.Click += BtnChangeOperator_Click;
