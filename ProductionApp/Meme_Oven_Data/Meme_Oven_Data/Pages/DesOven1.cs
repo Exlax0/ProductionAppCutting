@@ -36,8 +36,10 @@ namespace Meme_Oven_Data
         Button btSetValues;
         private NumericUpDown txtPlanHour;
         private NumericUpDown txtPlanShift;
+        private NumericUpDown txtPiecesPerCut;
         Label lblPlanHour;
         Label lblPlanShift;
+        Label lblPiecesPerCut;
 
         private ComboBox StopReasons;
         private MaskedTextBox StartEvent,StopEvent;
@@ -61,6 +63,31 @@ namespace Meme_Oven_Data
             InitStopEvent();
             LoadStopReasons();
 
+            this.lblPiecesPerCut = new Label()
+            {
+                Text = "Κομμάτια Ανά Κοπή",
+                Location = new Point(1300, 260),
+                AutoSize = true,
+               // Size = new Size(180, 35),
+                Font = new Font("Segoe UI", 16),
+                ForeColor = Color.Red,
+                BackColor = Color.Transparent,
+                BorderStyle = BorderStyle.None
+            };
+            this.Controls.Add(lblPiecesPerCut);
+
+            this.txtPiecesPerCut = new NumericUpDown()
+            {
+                Location = new Point(1520, 260),
+                Size = new Size(75, 30),
+                Font = new Font("Segoe UI", 16),
+                BackColor = Color.White,
+                BorderStyle = BorderStyle.None,
+                Maximum = 99999
+            };
+            txtPiecesPerCut.Controls[0].Visible = false;
+            this.Controls.Add(txtPiecesPerCut);
+
             this.btSetValues = new Button()
             {
                 Text = "Set Values",
@@ -73,12 +100,12 @@ namespace Meme_Oven_Data
 
             this.txtPlanHour = new NumericUpDown()
             {
-                Location = new Point(1480, 220),
-                Size = new Size(100, 30),
+                Location = new Point(1520, 220),
+                Size = new Size(75, 30),
                 Font = new Font("Segoe UI", 16),
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.None,
-                Maximum = 9999
+                Maximum = 99999
                 
 
             };
@@ -98,12 +125,12 @@ namespace Meme_Oven_Data
 
             this.txtPlanShift = new NumericUpDown()
             {
-                Location = new Point(1480, 180),
-                Size = new Size(100, 30),
+                Location = new Point(1520, 180),
+                Size = new Size(75, 30),
                 Font = new Font("Segoe UI", 16),
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.None,
-                Maximum = 9999
+                Maximum = 99999
             };
             txtPlanShift.Controls[0].Visible = false;
 
@@ -176,12 +203,12 @@ namespace Meme_Oven_Data
 
             this.chart = new Chart
             {
-                Size = new Size(1657, 550),
-                Location = new Point(50, 400),
+                Size = new Size(1680, 350),
+                Location = new Point(30, 550),
                 BackColor = Color.White // Neutral background color
             };
 
-            this.series = new Series("CutsPer15Min")
+            this.series = new Series("Κοπές Κοπτικού 1")
             {
                 ChartType = SeriesChartType.Column,
                 BorderWidth = 2,
@@ -211,7 +238,7 @@ namespace Meme_Oven_Data
                 AxisX = {
                             Title = "Time",
                             IntervalAutoMode = IntervalAutoMode.VariableCount,
-                            TitleFont = new Font("Arial", 18, FontStyle.Bold),
+                            TitleFont = new Font("Arial", 20, FontStyle.Bold),
                             LabelStyle = { ForeColor = Color.Black,
                                           Format= "dd/MM/yyyy\nHH:mm:ss"},
                             MajorGrid = { LineColor = Color.LightGray }
@@ -231,9 +258,9 @@ namespace Meme_Oven_Data
             chartArea.Position.Width = 96;
             chartArea.Position.Height = 96;
             chartArea.InnerPlotPosition.Auto = false;
-            chartArea.InnerPlotPosition.X = 5;      // left padding
-            chartArea.InnerPlotPosition.Y = 5;      // top padding
-            chartArea.InnerPlotPosition.Width = 90; // graph width %
+            chartArea.InnerPlotPosition.X = 0;      // left padding
+            chartArea.InnerPlotPosition.Y = 2;      // top padding
+            chartArea.InnerPlotPosition.Width = 100; // graph width %
             chartArea.InnerPlotPosition.Height = 90; // graph height %
 
             chart.ChartAreas.Add(chartArea);
@@ -592,6 +619,7 @@ namespace Meme_Oven_Data
             string machineName = "Cutting - Machine 01";  // or from a ComboBox
             int planHour = Convert.ToInt32(txtPlanHour.Value);                           // e.g. int.Parse(txtPlanHour.Text);
             int planShift = Convert.ToInt32(txtPlanShift.Value);                          // e.g. int.Parse(txtPlanShift.Text);
+            int PiecesPerCut = Convert.ToInt32(txtPiecesPerCut.Value);
 
             // Try to find existing plan for this machine
             var plan = _dbContext.MachinePlan
@@ -611,6 +639,7 @@ namespace Meme_Oven_Data
             plan.PlanHour = planHour;
             plan.PlanShift = planShift;
             plan.Date = DateTime.Now;  // last updated
+            plan.PiecesPerCut = PiecesPerCut;
 
             _dbContext.SaveChanges();
                         
@@ -652,9 +681,9 @@ namespace Meme_Oven_Data
                 // 🔹 Το κειμενάκι που θα φαίνεται πάνω στη μπάρα
                 p.Label = text;
                 p.LabelForeColor = Color.Black;
-                p.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                p.Font = new Font("Segoe UI", 12, FontStyle.Bold);
                 // προαιρετικά αν θες κάθετα:
-                // p.LabelAngle = -90;
+                 p.LabelAngle = -48;
 
                 stopsSeries.Points.Add(p);
             }
@@ -699,7 +728,7 @@ namespace Meme_Oven_Data
                 (double)totalCounterMachine1 / plan.PlanHour * 100.0;
 
             lblEfficiency.Text =
-     $"Efficiency: {efficiencyPrevHour:F1}%   |   {totalCounterMachine1}/{plan.PlanHour}";
+     $"Απόδοση: {efficiencyPrevHour:F1}%   |   {totalCounterMachine1}/{plan.PlanHour}";
 
             // Apply colors based on efficiency
             if (efficiencyPrevHour >= 80)
