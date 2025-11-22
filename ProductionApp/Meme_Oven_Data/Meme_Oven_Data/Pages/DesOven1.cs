@@ -208,8 +208,8 @@ namespace Meme_Oven_Data
 
             this.chart = new Chart
             {
-                Size = new Size(1680, 350),
-                Location = new Point(30, 550),
+                Size = new Size(1680, 420),
+                Location = new Point(20, 550),
                 BackColor = Color.White // Neutral background color
             };
 
@@ -310,11 +310,13 @@ namespace Meme_Oven_Data
         {
             lblPiecesLiveShift = new Label()
             {
-                Location = new Point(1300,150),
+                Location = new Point(1100,150),
                 AutoSize = true,
-                Font = new Font("Segoe UI",12),
-                Text = "Καμία Κοπή/Βάρδια"
+                Font = new Font("Segoe UI",18,FontStyle.Bold),
+                ForeColor = Color.Green,
+                Text = "1200"
             };
+            this.Controls.Add(lblPiecesLiveShift);
         }
         private void InitStopEvent()
         {
@@ -597,14 +599,14 @@ namespace Meme_Oven_Data
         {
             try
             {
-                string machineName = "Cutting - Machine 01";
+                string machineName = "Cutting - Machine 01";  // Be careful: you use Greek name below
 
                 DateTime now = DateTime.Now;
                 TimeSpan nowTime = now.TimeOfDay;
 
-                // 1. Load shift settings
+                // 1. Load shift settings - here you used Greek machine name, so I keep it
                 var shifts = _dbContext.MachineShiftPlan
-                    .Where(x => x.Machine == machineName)
+                    .Where(x => x.Machine == "Κοπτικό Μηχάνημα 01")
                     .ToList();
 
                 if (!shifts.Any())
@@ -615,54 +617,70 @@ namespace Meme_Oven_Data
                     // Normal shift
                     (s.StartTime <= s.EndTime && nowTime >= s.StartTime && nowTime < s.EndTime)
                     ||
-                    // Night shift
+                    // Night shift (crosses midnight)
                     (s.StartTime > s.EndTime && (nowTime >= s.StartTime || nowTime < s.EndTime))
                 );
 
                 if (currentShift == null)
                     return;
 
-                // 3. Create shift start DateTime (handles night shift correctly)
+                // 3. Calculate shift start DateTime
                 DateTime shiftStart;
 
                 if (currentShift.StartTime <= currentShift.EndTime)
                 {
-                    shiftStart = now.Date + currentShift.StartTime;   // Same day
+                    // Normal shift same day
+                    shiftStart = now.Date + currentShift.StartTime;
                 }
                 else
                 {
-                    // Night shift (22:00 → 06:00)
+                    // Night shift (e.g. 22:00–06:00)
                     shiftStart = (nowTime < currentShift.EndTime)
-                        ? now.Date.AddDays(-1) + currentShift.StartTime  // After midnight = started yesterday
-                        : now.Date + currentShift.StartTime;             // Before midnight = started today
+                        ? now.Date.AddDays(-1) + currentShift.StartTime // after midnight
+                        : now.Date + currentShift.StartTime;            // before midnight
                 }
 
-                // 4. Get all plan records for this machine during this shift
+                // 4. Get cuts during this shift from TempOven1
                 var shiftData = _dbContext.TempOven1
-                    .Where(x => x.Machine == machineName
+                    .Where(x => x.Machine == machineName   // <- check that this matches your data exactly!
                                 && x.Date >= shiftStart
-                                && x.Date <= now)
-                               // && x.Cut == 1)               // Only real cuts
+                                && x.Date <= now
+                                && x.Cut == 1)
                     .ToList();
 
-                // 5. Calculate pieces produced this shift
-                int piecesProduced = shiftData.Sum(x => x.PiecesPerCut);
+                int cutsThisShift = shiftData.Count;
 
-                // 6. Calculate total expected pieces (if the shift plan has it)
-                int totalShiftTarget = currentShift.PiecesPlan;
-                // <-- Change to your column name in MachineShiftPlan
+                // 5. Get PiecesPerCut and PlanShift from MachinePlan (for this machine)
+                var machinePlan = _dbContext.MachinePlan
+                    .FirstOrDefault(x => x.Machine == machineName);
 
-                // 7. Update label
-                lblPiecesLiveShift.Text = $"{piecesProduced} / {totalShiftTarget}";
+                if (machinePlan == null)
+                {
+                    Console.WriteLine("No MachinePlan record found for this machine.");
+                    return;
+                }
 
-                // Optional debug
-                Console.WriteLine($"Shift pieces: {piecesProduced} / {totalShiftTarget}");
+                int piecesPerCut = machinePlan.PiecesPerCut;  // <-- your column
+                int totalShiftTarget = machinePlan.PlanShift* piecesPerCut; // <-- replace with your real property name
+
+                // 6. Calculate pieces produced
+                int piecesProduced = cutsThisShift * piecesPerCut;
+
+                // 7. Update labels
+                lblPiecesLiveShift.Text = $"Κομμάτια που κόπηκαν στην βάρδια: {piecesProduced} / {totalShiftTarget}";
+
+                // If you also want efficiency:
+                // double efficiency = totalShiftTarget > 0 ? (double)piecesProduced / totalShiftTarget * 100 : 0;
+                // lblEfficiency.Text = $"{efficiency:F1} %";
+
+                Console.WriteLine($"Cuts this shift: {cutsThisShift}, Pieces: {piecesProduced} / {totalShiftTarget}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error in CountingPiecesPerShift: {ex.Message}");
             }
         }
+
 
 
 
@@ -688,6 +706,7 @@ namespace Meme_Oven_Data
 
                 // 🔥 ΠΑΝΤΑ ίδιο εύρος με τις κοπές: τελευταία 1 ώρα
                 AddStopEventsToChart(oneHourAgo, now);
+                CountingPiecesPerShift();
             }
             catch (Exception ex)
             {

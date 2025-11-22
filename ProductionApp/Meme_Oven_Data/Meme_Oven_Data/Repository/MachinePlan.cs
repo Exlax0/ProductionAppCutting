@@ -28,9 +28,9 @@ namespace Meme_Oven_Data.Repository
             [Column("PlanShift")]
             public Int32 PlanShift { get; set; }
 
-        [Column("PiecesPerCut")]
-        public Int32 PiecesPerCut { get; set; } = 1;
+            [Column("PiecesPerCut")]
+            public Int32 PiecesPerCut { get; set; } = 1;
 
-    }
+        }
     
 }

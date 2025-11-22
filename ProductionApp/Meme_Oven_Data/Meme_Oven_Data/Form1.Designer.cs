@@ -138,6 +138,7 @@ namespace Meme_Oven_Data
             btOven2.TabIndex = 2;
             btOven2.Text = "Κοπτικό 2";
             btOven2.UseVisualStyleBackColor = true;
+            btOven2.Visible = false;
             btOven2.Click += btOven2_Click;
             // 
             // btOven1
@@ -203,7 +204,7 @@ namespace Meme_Oven_Data
             // 
             lblTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTime.AutoSize = true;
-            lblTime.Location = new Point(1257, 66);
+            lblTime.Location = new Point(1285, 42);
             lblTime.Name = "lblTime";
             lblTime.Size = new Size(143, 15);
             lblTime.TabIndex = 1;
