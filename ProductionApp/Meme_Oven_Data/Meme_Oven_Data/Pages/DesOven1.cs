@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization;
 using System.Windows.Forms.DataVisualization.Charting;
 
+
 namespace Meme_Oven_Data
 {
     public partial class DesOven1 : UserControl
@@ -30,7 +31,7 @@ namespace Meme_Oven_Data
         Button btMain;
         Button btData;
         Label lblRecipe;
-        Label lblEfficiency;
+        Label lblEfficiency, lblEifficiencyShift;
         private Chart efficiencyChart;
         private Series efficiencySeries;
         Button btSetValues;
@@ -47,6 +48,7 @@ namespace Meme_Oven_Data
         private Button btSaveStopEvent;
         private Label StartTimeEvent, StopTimeEvent;
 
+        private Chart pieChart;
 
 
         private ComboBox cmbOperator;
@@ -65,6 +67,7 @@ namespace Meme_Oven_Data
             InitStopEvent();
             LoadStopReasons();
             InitLivePiecesCount();
+            InitChartPie();
 
 
             this.lblPiecesPerCut = new Label()
@@ -156,15 +159,31 @@ namespace Meme_Oven_Data
                 Text ="Working Efficiency 25%",
                 ForeColor = Color.Green,
                 BackColor = Color.Transparent,
-                Font = new Font("Segoe UI", 14,FontStyle.Bold),
+                Font = new Font("Segoe UI", 17,FontStyle.Bold),
                 AutoSize = false,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(340, 320),
-                Size = new Size(350,35),
+                Location = new Point(1100, 200),
+                Size = new Size(570,45),
                 BorderStyle = BorderStyle.FixedSingle,
                 Padding = new Padding(5),
                 Visible = true
             };
+
+            this.lblEifficiencyShift = new Label()
+            {
+                Text = "Working Efficiency 25%",
+                ForeColor = Color.Green,
+                BackColor = Color.Transparent,
+                Font = new Font("Segoe UI", 17, FontStyle.Bold),
+                AutoSize = false,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(1100, 260),
+                Size = new Size(570, 45),
+                BorderStyle = BorderStyle.FixedSingle,
+                Padding = new Padding(5),
+                Visible = true
+            };
+            this.Controls.Add(lblEifficiencyShift);
 
             this.lblRecipe = new Label()
             {
@@ -213,24 +232,26 @@ namespace Meme_Oven_Data
                 BackColor = Color.White // Neutral background color
             };
 
-            this.series = new Series("Κοπές Κοπτικού 1")
-            {
-                ChartType = SeriesChartType.Column,
-                BorderWidth = 2,
-                Color = Color.Blue,
-                XValueType = ChartValueType.DateTime
-            };
+            chart.ChartAreas.Clear();
 
-            var stopsSeries = new Series("Stops")
-            {
-                ChartType = SeriesChartType.RangeColumn,
-                XValueType = ChartValueType.DateTime,
-                Color = Color.FromArgb(80, Color.Red),
-                YValuesPerPoint = 2,        // range: from-Y, to-Y
-                IsVisibleInLegend = false
-            };
-            stopsSeries["PointWidth"] = "1.0";
-            chart.Series.Add(stopsSeries);
+            
+
+            //var stopsSeries = new Series("Stops")
+            //{
+            //    ChartType = SeriesChartType.RangeColumn,
+            //    XValueType = ChartValueType.DateTime,
+            //    Color = Color.FromArgb(80, Color.Red),
+            //    YValuesPerPoint = 1,
+            //    IsVisibleInLegend = false,
+            //    //ChartArea = "MainArea",
+            //    //YAxisType = AxisType.Secondary,
+            //    IsXValueIndexed = false
+            //};
+
+            //stopsSeries["PointWidth"] = "1.0";
+            
+            
+           // chart.Series.Add(stopsSeries);
 
 
 
@@ -241,11 +262,11 @@ namespace Meme_Oven_Data
                 BackColor = Color.White, // Set chart background color to white
 
                 AxisX = {
-                            Title = "Time",
+                            Title = "",
                             IntervalAutoMode = IntervalAutoMode.VariableCount,
                             TitleFont = new Font("Arial", 20, FontStyle.Bold),
                             LabelStyle = { ForeColor = Color.Black,
-                                          Format= "dd/MM/yyyy\nHH:mm:ss"},
+                                          Format= "dd/MM/yyyy\nHH:mm"},
                             MajorGrid = { LineColor = Color.LightGray }
                         },
 
@@ -258,7 +279,7 @@ namespace Meme_Oven_Data
             };
 
             chartArea.Position.Auto = false;
-            chartArea.Position.X = 2;
+            chartArea.Position.X = 1;
             chartArea.Position.Y = 2;
             chartArea.Position.Width = 96;
             chartArea.Position.Height = 96;
@@ -268,14 +289,33 @@ namespace Meme_Oven_Data
             chartArea.InnerPlotPosition.Width = 100; // graph width %
             chartArea.InnerPlotPosition.Height = 90; // graph height %
 
-            chart.ChartAreas.Add(chartArea);
+            // Δεύτερος άξονας Υ για τα stops (0–1)
+            chartArea.AxisY2.Enabled = AxisEnabled.False;
+            chartArea.AxisY2.Title = "Stops (0/1)";
+            chartArea.AxisY2.TitleFont = new Font("Arial", 12, FontStyle.Bold);
+            chartArea.AxisY2.Minimum = 0;
+            chartArea.AxisY2.Maximum = 1;
+            chartArea.AxisY2.MajorGrid.LineColor = Color.Transparent; // να μην γεμίζει το γράφημα με γραμμές
+           
 
             // Set chart background color
             chart.BackColor = Color.White;
-
-            
-
            
+
+            chart.ChartAreas.Add(chartArea);
+
+            this.series = new Series("Κοπές Κοπτικού 1")
+            {
+                ChartType = SeriesChartType.Column,
+                BorderWidth = 0,
+                Color = Color.Blue,
+                XValueType = ChartValueType.DateTime,
+                ChartArea = "MainArea"
+            };
+            series["PointWidth"] = "0.5";
+            series.IsXValueIndexed = false;
+            chart.Series.Add(series);
+
 
             this.Controls.Add(lblPlanShift);
             this.Controls.Add(lblPlanHour);
@@ -286,11 +326,159 @@ namespace Meme_Oven_Data
             this.Controls.Add(lblRecipe);
             this.Controls.Add(btData);
             this.Controls.Add(btMain);
-            this.chart.Series.Add(series);
+            //this.chart.Series.Add(series);
            
             //UpdateChart();
             this.Controls.Add(chart);
         }
+
+        private void InitChartPie()
+        {
+            pieChart = new Chart
+            {
+                Size = new Size(400, 300),
+                Location = new Point(600, 150),  // όπου σε βολεύει
+                BackColor = Color.Transparent
+            };
+
+            pieChart.ChartAreas.Add(new ChartArea("PieArea"));
+
+            this.Controls.Add(pieChart);
+
+        }
+
+        private void UpdatePieChart()
+        {
+            DateTime now = DateTime.Now;
+            TimeSpan nowTime = now.TimeOfDay;
+
+            // 1) Βρες τη βάρδια
+            var shifts = _dbContext.MachineShiftPlan
+                .Where(x => x.Machine == "Κοπτικό Μηχάνημα 01")
+                .ToList();
+
+            if (!shifts.Any())
+                return;
+
+            var currentShift = shifts.FirstOrDefault(s =>
+                (s.StartTime <= s.EndTime && nowTime >= s.StartTime && nowTime < s.EndTime) ||
+                (s.StartTime > s.EndTime && (nowTime >= s.StartTime || nowTime < s.EndTime))
+            );
+
+            if (currentShift == null)
+                return;
+
+            // 2) start–end shift datetime
+            DateTime shiftStart;
+            DateTime shiftEnd;
+
+            if (currentShift.StartTime <= currentShift.EndTime)
+            {
+                shiftStart = now.Date + currentShift.StartTime;
+                shiftEnd = now.Date + currentShift.EndTime;
+            }
+            else
+            {
+                shiftStart = nowTime < currentShift.EndTime
+                    ? now.Date.AddDays(-1) + currentShift.StartTime
+                    : now.Date + currentShift.StartTime;
+
+                var span = (currentShift.EndTime > currentShift.StartTime)
+                    ? currentShift.EndTime - currentShift.StartTime
+                    : new TimeSpan(24, 0, 0) - (currentShift.StartTime - currentShift.EndTime);
+
+                shiftEnd = shiftStart.Add(span);
+            }
+
+            double hoursPassed = (now - shiftStart).TotalHours;
+            double totalHours = (shiftEnd - shiftStart).TotalHours;
+
+            if (hoursPassed < 0 || totalHours <= 0)
+                return;
+
+            // 3) Κοπές στη βάρδια
+            var shiftCuts = _dbContext.TempOven1
+                .Where(x => x.Date >= shiftStart &&
+                            x.Date <= now &&
+                            x.Cut == 1)
+                .ToList();
+
+            int cutsThisShift = shiftCuts.Count;
+
+            // 4) Πλάνο
+            var plan = _dbContext.MachinePlan
+                .FirstOrDefault(x => x.Machine == "Cutting - Machine 01");
+
+            if (plan == null || plan.PlanShift <= 0 || plan.PiecesPerCut <= 0)
+                return;
+
+            int totalPlan = plan.PlanShift * plan.PiecesPerCut;
+            int piecesProduced = cutsThisShift * plan.PiecesPerCut;
+
+            if (piecesProduced > totalPlan)
+                piecesProduced = totalPlan;
+
+            double expectedSoFar = (hoursPassed / totalHours) * totalPlan;
+            if (expectedSoFar < 0) expectedSoFar = 0;
+            if (expectedSoFar > totalPlan) expectedSoFar = totalPlan;
+
+            double lost = Math.Max(0, expectedSoFar - piecesProduced);   // άργησαν/χάθηκαν
+            double remaining = Math.Max(0, totalPlan - expectedSoFar);        // απομένουν μέχρι τέλος βάρδιας
+
+            // 5) Pie chart
+            // 5) Pie chart
+            pieChart.Series.Clear();
+            pieChart.Legends.Clear();
+
+            // προαιρετικά “διάφανο” φόντο
+            pieChart.BackColor = Color.Transparent;
+            if (pieChart.ChartAreas.Count > 0)
+                pieChart.ChartAreas[0].BackColor = Color.Transparent;
+
+            var pie = new Series("ShiftStats")
+            {
+                ChartType = SeriesChartType.Pie,
+                IsValueShownAsLabel = false,              // 🔴 Όχι αυτόματα labels
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Label = ""                                // 🔴 Άδειο default label
+            };
+
+            // 🔴 Πλήρης απενεργοποίηση labels στην πίτα
+            pie["PieLabelStyle"] = "Disabled";           // <-- Κλειδώνει να ΜΗΝ δείχνει labels
+            pie["PieDrawingStyle"] = "SoftEdge";
+
+            pie.Points.AddXY("Κομμένα", piecesProduced);
+            pie.Points.AddXY("Αργοπορημένα", lost);
+            pie.Points.AddXY("Εναπομείναντα", remaining);
+
+            // 🔹 ΜΟΝΟ legend + tooltip, ΚΑΝΕΝΑ label στην πίτα
+            foreach (var p in pie.Points)
+            {
+                double value = p.YValues[0];
+
+                p.IsValueShownAsLabel = false;   // σίγουρα όχι label στο slice
+                p.Label = "";                    // άδειο label
+
+                // Υπόμνημα
+                p.LegendText = $"{p.AxisLabel}: {value:0}";
+
+                // Tooltip
+                p.ToolTip = $"{p.AxisLabel}: {value:0}";
+            }
+
+            pieChart.Series.Add(pie);
+
+            // Υπόμνημα δεξιά
+            var legend = new Legend("PieLegend")
+            {
+                Docking = Docking.Right,
+                Alignment = StringAlignment.Center,
+                Font = new Font("Segoe UI", 10, FontStyle.Regular)
+            };
+            pieChart.Legends.Add(legend);
+
+        }
+
 
         private void LoadStopReasons()
         {
@@ -594,6 +782,25 @@ namespace Meme_Oven_Data
             
 
         }
+        private void ApplyEfficiencyColor(Label label, double efficiency)
+        {
+            // Adjust thresholds if you used different ones in the previous-hour label
+            if (efficiency >= 90)
+            {
+                label.ForeColor = Color.LimeGreen;
+                label.BackColor = Color.FromArgb(30, 60, 30);  // dark green background
+            }
+            else if (efficiency >= 70)
+            {
+                label.ForeColor = Color.Goldenrod; // yellow/orange
+                label.BackColor = Color.FromArgb(60, 60, 20);  // dark green background
+            }
+            else
+            {
+                label.ForeColor = Color.Red;
+                label.BackColor = Color.FromArgb(60, 20, 20);  // dark green background
+            }
+        }
 
         private void CountingPiecesPerShift()
         {
@@ -642,8 +849,8 @@ namespace Meme_Oven_Data
 
                 // 4. Get cuts during this shift from TempOven1
                 var shiftData = _dbContext.TempOven1
-                    .Where(x => x.Machine == machineName   // <- check that this matches your data exactly!
-                                && x.Date >= shiftStart
+                    .Where(x => //x.Machine == machineName   // <- check that this matches your data exactly!
+                                 x.Date >= shiftStart
                                 && x.Date <= now
                                 && x.Cut == 1)
                     .ToList();
@@ -670,8 +877,9 @@ namespace Meme_Oven_Data
                 lblPiecesLiveShift.Text = $"Κομμάτια που κόπηκαν στην βάρδια: {piecesProduced} / {totalShiftTarget}";
 
                 // If you also want efficiency:
-                // double efficiency = totalShiftTarget > 0 ? (double)piecesProduced / totalShiftTarget * 100 : 0;
-                // lblEfficiency.Text = $"{efficiency:F1} %";
+                double efficiency = totalShiftTarget > 0 ? (double)piecesProduced / totalShiftTarget * 100 : 0;
+                lblEifficiencyShift.Text = $"Απόδοση Βάρδιας: {efficiency:F1} %";
+                ApplyEfficiencyColor(lblEifficiencyShift, efficiency);
 
                 Console.WriteLine($"Cuts this shift: {cutsThisShift}, Pieces: {piecesProduced} / {totalShiftTarget}");
             }
@@ -680,9 +888,6 @@ namespace Meme_Oven_Data
                 Console.WriteLine($"Error in CountingPiecesPerShift: {ex.Message}");
             }
         }
-
-
-
 
         private void UpdateChart()
         {
@@ -703,21 +908,31 @@ namespace Meme_Oven_Data
                 {
                     this.series.Points.AddXY(item.Date, item.Cut);
                 }
+                var area = chart.ChartAreas["MainArea"];
+                area.AxisX.Minimum = oneHourAgo.ToOADate();
+                area.AxisX.Maximum = now.ToOADate();
+                area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
+                area.AxisX.Interval = 5;
+                area.AxisX.LabelStyle.Format = "HH:mm";
+
+                //AddStopEventsToChart(oneHourAgo, now);
+
+
 
                 // 🔥 ΠΑΝΤΑ ίδιο εύρος με τις κοπές: τελευταία 1 ώρα
                 AddStopEventsToChart(oneHourAgo, now);
                 CountingPiecesPerShift();
+               
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error updating chart: {ex.Message}");
             }
+
+
         }
-
-
-
-
-
+  
         private void btSetValues_Click(object sender, EventArgs e)
         {
             // Example: values from textboxes / numericUpDowns
@@ -751,8 +966,10 @@ namespace Meme_Oven_Data
         }
         private void AddStopEventsToChart(DateTime from, DateTime to)
         {
-            var stopsSeries = chart.Series["Stops"];
-            stopsSeries.Points.Clear();
+            var area = chart.ChartAreas["MainArea"];
+
+            // Καθαρίζουμε παλιά stop rectangles
+            area.AxisX.StripLines.Clear();
 
             var events = _dbContext.MachineStopEvents
                 .Include(e => e.StopReason)
@@ -772,30 +989,39 @@ namespace Meme_Oven_Data
 
                 string text = evt.StopReason?.Description ?? "Stop";
 
-                var p = new DataPoint
+                double startOa = start.ToOADate();
+                double endOa = end.ToOADate();
+                double widthDays = endOa - startOa;    // StripWidth είναι σε "days"
+
+                var strip = new StripLine
                 {
-                    XValue = start.ToOADate()
+                    // ζωγραφίζει ΜΙΑ φορά (όχι επαναλαμβανόμενα)
+                    Interval = 0,
+
+                    // από πού ξεκινάει στον άξονα Χ
+                    IntervalOffset = startOa,
+
+                    // μέχρι πού φτάνει (πλάτος ορθογώνιου)
+                    StripWidth = widthDays,
+
+                    // η γέμιση του τετραγώνου
+                    BackColor = Color.FromArgb(60, Color.Red),
+
+                    // 🔹 ΚΕΙΜΕΝΟ ΠΑΝΩ ΣΤΟ RECTANGLE
+                    Text = text,
+                    ForeColor = Color.Black,
+                    Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                    TextAlignment = StringAlignment.Center,      // οριζόντια στο κέντρο
+                    TextLineAlignment = StringAlignment.Center,  // κατακόρυφα στο κέντρο
+
+                    // Tooltip για λεπτομέρειες
+                    ToolTip = $"{text}\n{start:HH:mm} - {end:HH:mm}"
                 };
 
-                // range: Y = 0 → 1
-                p.YValues = new double[] { 0.0, 1.0 };
-
-                // Tooltip (όταν πας με το mouse)
-                p.ToolTip = $"{text}\n{start:HH:mm} - {end:HH:mm}";
-
-                // 🔹 Το κειμενάκι που θα φαίνεται πάνω στη μπάρα
-                p.Label = text;
-                p.LabelForeColor = Color.Black;
-                p.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-                // προαιρετικά αν θες κάθετα:
-                 p.LabelAngle = -48;
-
-                stopsSeries.Points.Add(p);
+                area.AxisX.StripLines.Add(strip);
             }
-
-            // προαιρετικά, για σιγουριά:
-            stopsSeries.IsValueShownAsLabel = true;
         }
+
 
 
 
@@ -803,6 +1029,8 @@ namespace Meme_Oven_Data
         private void Update1ChartTimer_Tick(object sender, EventArgs e)
         {
             UpdateChart();
+            UpdatePieChart();
+
 
             DateTime now = DateTime.Now;
             DateTime currentHourStart = new DateTime(
@@ -815,8 +1043,8 @@ namespace Meme_Oven_Data
             //AddStopEventsToChart(from, to);
 
             int totalCounterMachine1 = _dbContext.TempOven1
-                .Count(x => x.Machine == "Cutting - Machine 01"
-                         && x.Date >= from
+                .Count(x => //x.Machine == "Cutting - Machine 01"
+                          x.Date >= from
                          && x.Date < to
                          && x.Cut == 1);
 
@@ -825,7 +1053,7 @@ namespace Meme_Oven_Data
 
             if (plan == null || plan.PlanHour <= 0)
             {
-                lblEfficiency.Text = "Efficiency: N/A";
+                lblEfficiency.Text = "Απόδοση: N/A";
                 return;
             }
 
@@ -833,7 +1061,7 @@ namespace Meme_Oven_Data
                 (double)totalCounterMachine1 / plan.PlanHour * 100.0;
 
             lblEfficiency.Text =
-     $"Απόδοση: {efficiencyPrevHour:F1}%   |   {totalCounterMachine1}/{plan.PlanHour}";
+     $"Απόδοση προηγούμενης ώρας: {efficiencyPrevHour:F1}%   |   {totalCounterMachine1}/{plan.PlanHour}";
 
             // Apply colors based on efficiency
             if (efficiencyPrevHour >= 80)
@@ -855,91 +1083,131 @@ namespace Meme_Oven_Data
 
 
         private void search_btn_Click(object sender, EventArgs e)
-        {
-            Update1ChartTimer.Enabled = false;
-            var dateTimePickerFrom = datePickerFrom.Value.Date + timePickerFrom.Value.TimeOfDay;
-            var dateTimePickerTo = datePickerTo.Value.Date + timePickerTo.Value.TimeOfDay;
+{
+    // Κρύψε τα live labels όταν κάνεις αναζήτηση
+    lblEifficiencyShift.Visible = false;
+    lblPiecesLiveShift.Visible = false;
 
-            var data = _dbContext.TempOven1
-                    .Where(x => x.Date >= dateTimePickerFrom && x.Date <= dateTimePickerTo && x.Cut == 1)
-                    .OrderByDescending(x => x.Date) // Get the most recent records
-                                                    //.Take(1000)                     // Limit to 100 records
-                    .OrderBy(x => x.Date)          // Reorder to ascending by Date for proper charting
-                    .ToList();
+    // Σταμάτα το live update
+    Update1ChartTimer.Enabled = false;
 
+    // 1) Πάρε το range από τα date/time pickers
+    DateTime from = datePickerFrom.Value.Date + timePickerFrom.Value.TimeOfDay;
+    DateTime to   = datePickerTo.Value.Date   + timePickerTo.Value.TimeOfDay;
 
+    if (to <= from)
+    {
+        MessageBox.Show("Η ώρα λήξης πρέπει να είναι μετά την ώρα έναρξης.",
+                        "Λάθος εύρος χρόνου",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+        return;
+    }
 
-            int count = data.Count;
+    // 2) Φέρε τις κοπές από τη βάση
+    var data = _dbContext.TempOven1
+        .Where(x => x.Cut == 1 &&
+                    x.Date >= from &&
+                    x.Date <= to)
+        .OrderBy(x => x.Date)
+        .ToList();
 
-            this.series.Points.Clear();
+    int count = data.Count;
 
-            // Add data points to the chart
-            for (int i = 1; i < data.Count; i++)
-            {
-                this.series.Points.AddXY(data.ElementAt(i).Date, data.ElementAt(i).Cut);
+    // 3) Γέμισε τη σειρά του chart
+    series.Points.Clear();
 
-            }
+    foreach (var item in data)
+    {
+        series.Points.AddXY(item.Date, item.Cut);
+    }
 
-            // 3) Calculate time range in hours
-            double hours = (dateTimePickerTo - dateTimePickerFrom).TotalHours;
-            if (hours <= 0)
-            {
-                lblEfficiency.Text = "Efficiency: N/A";
-                return;
-            }
+    // 4) Ρύθμιση άξονα Χ στο εύρος της αναζήτησης
+    var area = chart.ChartAreas["MainArea"];
 
-            // 4) Get plan for this machine
-            var plan = _dbContext.MachinePlan
-                .SingleOrDefault(x => x.Machine == "Cutting - Machine 01");
+    // Reset τυχόν παλιό zoom
+    area.AxisX.ScaleView.ZoomReset();
 
-            if (plan == null || plan.PlanHour <= 0)
-            {
-                lblEfficiency.Text = "Efficiency: N/A";
-                return;
-            }
+    area.AxisX.Minimum = from.ToOADate();
+    area.AxisX.Maximum = to.ToOADate();
+    area.AxisX.LabelStyle.Format = "HH:mm";
 
-            // 5) Expected cuts in that period
-            double expectedCuts = plan.PlanHour * hours;
+    double totalMinutes = (to - from).TotalMinutes;
 
-            // 6) Efficiency for the searched period
-            double efficiency = (expectedCuts > 0)
-                ? (count / expectedCuts) * 100.0
-                : 0.0;
+    if (totalMinutes <= 60)
+    {
+        area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
+        area.AxisX.Interval = 5;
+    }
+    else if (totalMinutes <= 6 * 60)
+    {
+        area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
+        area.AxisX.Interval = 30;
+    }
+    else
+    {
+        area.AxisX.IntervalType = DateTimeIntervalType.Hours;
+        area.AxisX.Interval = 1;
+    }
 
-            // 7) Update label text
-            lblEfficiency.Text =
-                $"Efficiency (search): {efficiency:F1}%   |   {count}/{expectedCuts:F0}";
+    // 5) Ζωγράφισε τα stop events ως rectangles στο ίδιο εύρος
+    AddStopEventsToChart(from, to);
 
-            // 8) Color-coding based on efficiency
-            if (efficiency >= 80)
-            {
-                lblEfficiency.ForeColor = Color.LimeGreen;
-                lblEfficiency.BackColor = Color.FromArgb(30, 60, 30);
-            }
-            else if (efficiency >= 50)
-            {
-                lblEfficiency.ForeColor = Color.Gold;
-                lblEfficiency.BackColor = Color.FromArgb(60, 60, 20);
-            }
-            else
-            {
-                lblEfficiency.ForeColor = Color.Red;
-                lblEfficiency.BackColor = Color.FromArgb(60, 20, 20);
-            }
+    // 6) Υπολογισμός απόδοσης για το εύρος αναζήτησης
+    double hours = (to - from).TotalHours;
 
-            AddStopEventsToChart(dateTimePickerFrom, dateTimePickerTo);
+    if (hours <= 0)
+    {
+        lblEfficiency.Text = "Απόδοση: N/A";
+        return;
+    }
 
-        }
+    var plan = _dbContext.MachinePlan
+        .SingleOrDefault(x => x.Machine == "Cutting - Machine 01");
+
+    if (plan == null || plan.PlanHour <= 0)
+    {
+        lblEfficiency.Text = "Απόδοση: N/A";
+        return;
+    }
+
+    double expectedCuts = plan.PlanHour * hours;
+
+    double efficiency = (expectedCuts > 0)
+        ? (count / expectedCuts) * 100.0
+        : 0.0;
+
+    lblEfficiency.Text =
+        $"Απόδοση (αναζήτησης): {efficiency:F1}%   |   {count}/{expectedCuts:F0}";
+
+    // 7) Χρωματισμός label απόδοσης
+    if (efficiency >= 80)
+    {
+        lblEfficiency.ForeColor = Color.LimeGreen;
+        lblEfficiency.BackColor = Color.FromArgb(30, 60, 30);
+    }
+    else if (efficiency >= 50)
+    {
+        lblEfficiency.ForeColor = Color.Gold;
+        lblEfficiency.BackColor = Color.FromArgb(60, 60, 20);
+    }
+    else
+    {
+        lblEfficiency.ForeColor = Color.Red;
+        lblEfficiency.BackColor = Color.FromArgb(60, 20, 20);
+    }
+}
+
 
         private void Live_btn_Click(object sender, EventArgs e)
         {
             Update1ChartTimer.Enabled = true;
+            lblEifficiencyShift.Visible = true;
+            lblPiecesLiveShift.Visible = true;
         }
 
         private void tmrReadColor_Tick(object sender, EventArgs e)
         {
-
-
 
         }
 

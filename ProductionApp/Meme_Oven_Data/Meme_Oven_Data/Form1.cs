@@ -66,15 +66,6 @@ namespace Meme_Oven_Data
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("el-GR");
 
 
-            //this.lblTime = new Label
-            //{
-            //    AutoSize = true,
-            //    BackColor = Color.Transparent,
-            //    Font = new Font("Segoe UI", 25, FontStyle.Bold),
-            //    ForeColor = Color.CadetBlue
-            //};
-
-
             this.Testbutton = new Button
             {
                 Size = new Size(50, 50),
@@ -181,7 +172,7 @@ namespace Meme_Oven_Data
                     var tempOven1 = new TempOven1
                     {
                         Date = DateTime.Now,
-                        Machine = "Cutting - Machine 01",
+                        Machine = "Κοπτικό Μηχάνημα 01",
                         Name = DataTags.CurrentOperator1 ?? "Unkown",
                         Cut = 1
                     };
@@ -196,7 +187,7 @@ namespace Meme_Oven_Data
                     var tempOven1 = new TempOven1
                     {
                         Date = DateTime.Now,
-                        Machine = "Cutting - Machine 02",
+                        Machine = "Κοπτικό Μηχάνημα 02",
                         Name = DataTags.CurrentOperator2 ?? "Unkown",
                         Cut = 2
                     };

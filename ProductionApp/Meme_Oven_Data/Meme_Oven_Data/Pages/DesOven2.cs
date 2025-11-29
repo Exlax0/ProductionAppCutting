@@ -44,8 +44,10 @@ namespace Meme_Oven_Data.Pages
                             Title = "Time",
                             IntervalAutoMode = IntervalAutoMode.VariableCount,
                             TitleFont = new Font("Arial", 18, FontStyle.Bold),
-                            LabelStyle = { ForeColor = Color.Black },
-                            MajorGrid = { LineColor = Color.LightGray }
+                            LabelStyle = { ForeColor = Color.Black,
+                     Format = "dd/MM/yyyy\nHH:mm:ss"},
+                            MajorGrid = { LineColor = Color.LightGray },
+                            
                         },
 
                 AxisY = {
@@ -84,7 +86,7 @@ namespace Meme_Oven_Data.Pages
                 Title = "On/Off Oven State",
                 TitleFont = new Font("Arial", 18, FontStyle.Bold),
                 Interval = 1,
-                Enabled = AxisEnabled.True,
+                Enabled = AxisEnabled.False,
                 LabelStyle = { ForeColor = Color.Black },
                 MajorGrid = { LineColor = Color.Transparent },
                 LineColor = Color.Black,
