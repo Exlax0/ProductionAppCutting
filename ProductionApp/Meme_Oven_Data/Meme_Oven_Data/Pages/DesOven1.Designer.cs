@@ -39,6 +39,7 @@
             Live_btn = new Button();
             tmrReadColor = new System.Windows.Forms.Timer(components);
             timer1 = new System.Windows.Forms.Timer(components);
+            btExport = new Button();
             SuspendLayout();
             // 
             // txt1
@@ -72,14 +73,14 @@
             // 
             datePickerTo.Font = new Font("Arial", 10F);
             datePickerTo.Format = DateTimePickerFormat.Short;
-            datePickerTo.Location = new Point(664, 19);
+            datePickerTo.Location = new Point(623, 19);
             datePickerTo.Name = "datePickerTo";
             datePickerTo.Size = new Size(200, 23);
             datePickerTo.TabIndex = 4;
             // 
             // search_btn
             // 
-            search_btn.Location = new Point(1015, 15);
+            search_btn.Location = new Point(943, 15);
             search_btn.Name = "search_btn";
             search_btn.Size = new Size(84, 30);
             search_btn.TabIndex = 5;
@@ -101,7 +102,7 @@
             // 
             timePickerTo.Font = new Font("Arial", 10F);
             timePickerTo.Format = DateTimePickerFormat.Time;
-            timePickerTo.Location = new Point(870, 19);
+            timePickerTo.Location = new Point(829, 19);
             timePickerTo.Name = "timePickerTo";
             timePickerTo.ShowUpDown = true;
             timePickerTo.Size = new Size(108, 23);
@@ -115,6 +116,7 @@
             Live_btn.TabIndex = 8;
             Live_btn.Text = "Live";
             Live_btn.UseVisualStyleBackColor = true;
+            Live_btn.Visible = false;
             Live_btn.Click += Live_btn_Click;
             // 
             // tmrReadColor
@@ -122,11 +124,22 @@
             tmrReadColor.Interval = 500;
             tmrReadColor.Tick += tmrReadColor_Tick;
             // 
+            // btExport
+            // 
+            btExport.Location = new Point(1033, 15);
+            btExport.Name = "btExport";
+            btExport.Size = new Size(84, 30);
+            btExport.TabIndex = 9;
+            btExport.Text = "Εκτύπωση";
+            btExport.UseVisualStyleBackColor = true;
+            btExport.Visible = false;
+            // 
             // DesOven1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 48, 64);
+            Controls.Add(btExport);
             Controls.Add(Live_btn);
             Controls.Add(timePickerTo);
             Controls.Add(timePickerFrom);
@@ -153,5 +166,7 @@
         private Button Live_btn;
         private System.Windows.Forms.Timer tmrReadColor;
         private System.Windows.Forms.Timer timer1;
+        private Button button1;
+        private Button btExport;
     }
 }

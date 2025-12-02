@@ -159,7 +159,7 @@ namespace Meme_Oven_Data
             }
 
             CuttingPulse1 = GetBitValue(9, 0, 0);
-            CuttingPulse2 = GetBitValue(9, 0, 1);
+            //CuttingPulse2 = GetBitValue(9, 0, 1);
 
             try
             {
@@ -174,7 +174,8 @@ namespace Meme_Oven_Data
                         Date = DateTime.Now,
                         Machine = "Κοπτικό Μηχάνημα 01",
                         Name = DataTags.CurrentOperator1 ?? "Unkown",
-                        Cut = 1
+                        Cut = 1,
+                        ProductCode = DataTags.CurrentCode1
                     };
 
                     _dbContext.TempOven1.Add(tempOven1);

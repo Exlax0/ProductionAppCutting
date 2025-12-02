@@ -27,5 +27,8 @@ namespace Meme_Oven_Data.Repository
         [Column("Cut")]
         public Int32 Cut { get; set; }
 
+        [Column("ProductCode")]
+        public string? ProductCode { get; set; }
+
     }
 }

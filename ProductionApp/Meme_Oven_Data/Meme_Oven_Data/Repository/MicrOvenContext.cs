@@ -17,11 +17,10 @@ namespace Meme_Oven_Data.Repository
         public DbSet<Operators> Operators { get; set; }
         public DbSet<TempOven1> TempOven1 { get; set; }
         public DbSet<TempOven2> TempOven2 { get; set; }
-
         public DbSet<MachinePlan> MachinePlan { get; set; }
-
         public DbSet<StopReason> StopReasons { get; set; }
         public DbSet<MachineStopEvent> MachineStopEvents { get; set; }
+        public DbSet<ProductCutPlan> ProductCutPlan { get; set; } 
 
 
     }

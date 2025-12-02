@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,9 @@ namespace Meme_Oven_Data
 
         private Chart pieChart;
 
+        private ComboBox ProductList;
+        private Label CurrentProduct,lblDescProd;
+        private Button btChangeProduct;
 
         private ComboBox cmbOperator;
         private Button btnChangeOperator;
@@ -68,6 +72,7 @@ namespace Meme_Oven_Data
             LoadStopReasons();
             InitLivePiecesCount();
             InitChartPie();
+            InitProduct();
 
 
             this.lblPiecesPerCut = new Label()
@@ -235,28 +240,6 @@ namespace Meme_Oven_Data
             chart.ChartAreas.Clear();
 
             
-
-            //var stopsSeries = new Series("Stops")
-            //{
-            //    ChartType = SeriesChartType.RangeColumn,
-            //    XValueType = ChartValueType.DateTime,
-            //    Color = Color.FromArgb(80, Color.Red),
-            //    YValuesPerPoint = 1,
-            //    IsVisibleInLegend = false,
-            //    //ChartArea = "MainArea",
-            //    //YAxisType = AxisType.Secondary,
-            //    IsXValueIndexed = false
-            //};
-
-            //stopsSeries["PointWidth"] = "1.0";
-            
-            
-           // chart.Series.Add(stopsSeries);
-
-
-
-
-
             ChartArea chartArea = new ChartArea("MainArea")
             {
                 BackColor = Color.White, // Set chart background color to white
@@ -312,7 +295,7 @@ namespace Meme_Oven_Data
                 XValueType = ChartValueType.DateTime,
                 ChartArea = "MainArea"
             };
-            series["PointWidth"] = "0.5";
+            series["PointWidth"] = "0.9";
             series.IsXValueIndexed = false;
             chart.Series.Add(series);
 
@@ -330,6 +313,119 @@ namespace Meme_Oven_Data
            
             //UpdateChart();
             this.Controls.Add(chart);
+        }
+
+        private void InitProduct()
+        {
+            lblDescProd = new Label()
+            {
+                Location = new Point(1040, 400),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 14,FontStyle.Bold),
+                Text = "Επιλέξτε προϊόν:",
+                ForeColor = Color.Red   
+            };
+            this.Controls.Add(lblDescProd);
+
+            btChangeProduct = new Button
+            {
+                Size = new Size(280, 40),
+                Location = new Point(1240,450),
+                BackColor = Color.Aquamarine,
+                Font = new Font("Segoe UI", 16),
+                Text = "Αλλαγή Προιόντος"
+            };
+            this.Controls.Add(btChangeProduct);
+            btChangeProduct.Click += btChangeProduct_Click;
+
+            ProductList = new ComboBox()
+            {
+                Location = new Point(1210, 400),
+                Size = new Size(200, 30),
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Segoe UI", 12)
+            };
+
+            // Φόρτωσε από SQL στη μνήμη EF
+            _dbContext.ProductCutPlan.Load();
+
+            // Δέσε τα δεδομένα στο ComboBox
+                ProductList.DataSource = _dbContext.ProductCutPlan.Local.ToBindingList();
+            ProductList.DisplayMember = "ProductCode";
+            ProductList.ValueMember = "Id";
+
+            // Προαιρετικά: βάλε κενό default
+            ProductList.SelectedIndex = -1;
+
+            ProductList.SelectedIndexChanged += ProductList_SelectedIndexChanged;
+            this.Controls.Add(ProductList);
+
+            CurrentProduct = new Label()
+            {
+                Location = new Point(1420, 400),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 14,FontStyle.Bold),
+                Text = "Τωρινός Κωδικός Κοπής",
+                ForeColor = Color.LightGreen
+            };
+            this.Controls.Add(CurrentProduct);
+        }
+
+        private void ProductList_SelectedIndexChanged(object sender , EventArgs e)
+        {
+            if (ProductList.SelectedItem == null)
+                return;
+
+            string desc = ProductList.Text;
+
+            var reason = _dbContext.ProductCutPlan
+                .FirstOrDefault(x => x.ProductCode == desc);
+        }
+
+        private void btChangeProduct_Click(object sender , EventArgs e )
+        {
+
+
+            if (ProductList.SelectedItem is ProductCutPlan op)
+            {
+                string machineName = "Cutting - Machine 01";
+                DataTags.CurrentCode1 = op.ProductCode;
+                DataTags.CutPieces1 = op.PiecesPerCut;
+                DataTags.HourCuts1 = op.CutsPerHour;
+                DataTags.ShiftCuts1 = DataTags.HourCuts1*8;
+                CurrentProduct.Text = $"Τρέχων Κωδικός: {DataTags.CurrentCode1}";
+
+                var plan = _dbContext.MachinePlan
+                .SingleOrDefault(x => x.Machine == machineName);
+
+                if (plan == null)
+                {
+                    // No record yet -> create one
+                    plan = new MachinePlan
+                    {
+                        Machine = machineName
+                    };
+                    _dbContext.MachinePlan.Add(plan);
+                }
+
+                // Update values (for new or existing row)
+                plan.PlanHour = DataTags.HourCuts1;
+                plan.PlanShift = DataTags.ShiftCuts1;
+                plan.Date = DateTime.Now;  // last updated
+                plan.PiecesPerCut = DataTags.CutPieces1;
+
+                _dbContext.SaveChanges();
+
+                MessageBox.Show(
+                    $"Ο νέος κωδικός κοπής είναι: {DataTags.CurrentCode1}",
+                    "Αλλαγή κωδικού",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Παρακαλώ επιλέξτε κωδικό.");
+            }
         }
 
         private void InitChartPie()
@@ -935,11 +1031,16 @@ namespace Meme_Oven_Data
   
         private void btSetValues_Click(object sender, EventArgs e)
         {
+
+            // 1️⃣ Find the row for the current product code
+            var product = _dbContext.ProductCutPlan
+                .FirstOrDefault(x => x.ProductCode == DataTags.CurrentCode1);
+
             // Example: values from textboxes / numericUpDowns
             string machineName = "Cutting - Machine 01";  // or from a ComboBox
-            int planHour = Convert.ToInt32(txtPlanHour.Value);                           // e.g. int.Parse(txtPlanHour.Text);
-            int planShift = Convert.ToInt32(txtPlanShift.Value);                          // e.g. int.Parse(txtPlanShift.Text);
-            int PiecesPerCut = Convert.ToInt32(txtPiecesPerCut.Value);
+            int planHour = DataTags.HourCuts1; //Convert.ToInt32(txtPlanHour.Value);                           // e.g. int.Parse(txtPlanHour.Text);
+            int planShift = DataTags.ShiftCuts1; //Convert.ToInt32(txtPlanShift.Value);                          // e.g. int.Parse(txtPlanShift.Text);
+            int PiecesPerCut = DataTags.CutPieces1;//Convert.ToInt32(txtPiecesPerCut.Value);
 
             // Try to find existing plan for this machine
             var plan = _dbContext.MachinePlan
@@ -1023,9 +1124,6 @@ namespace Meme_Oven_Data
         }
 
 
-
-
-
         private void Update1ChartTimer_Tick(object sender, EventArgs e)
         {
             UpdateChart();
@@ -1083,124 +1181,130 @@ namespace Meme_Oven_Data
 
 
         private void search_btn_Click(object sender, EventArgs e)
-{
-    // Κρύψε τα live labels όταν κάνεις αναζήτηση
-    lblEifficiencyShift.Visible = false;
-    lblPiecesLiveShift.Visible = false;
+        {
+            
+            // Κρύψε τα live labels όταν κάνεις αναζήτηση
+            lblEifficiencyShift.Visible = false;
+            lblPiecesLiveShift.Visible = false;
 
-    // Σταμάτα το live update
-    Update1ChartTimer.Enabled = false;
+            // Σταμάτα το live update
+            Update1ChartTimer.Enabled = false;
 
-    // 1) Πάρε το range από τα date/time pickers
-    DateTime from = datePickerFrom.Value.Date + timePickerFrom.Value.TimeOfDay;
-    DateTime to   = datePickerTo.Value.Date   + timePickerTo.Value.TimeOfDay;
+            // 1) Πάρε το range από τα date/time pickers
+            DateTime from = datePickerFrom.Value.Date + timePickerFrom.Value.TimeOfDay;
+            DateTime to   = datePickerTo.Value.Date   + timePickerTo.Value.TimeOfDay;
 
-    if (to <= from)
-    {
-        MessageBox.Show("Η ώρα λήξης πρέπει να είναι μετά την ώρα έναρξης.",
-                        "Λάθος εύρος χρόνου",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-        return;
-    }
+            if (to <= from)
+            {
+                MessageBox.Show("Η ώρα λήξης πρέπει να είναι μετά την ώρα έναρξης.",
+                                "Λάθος εύρος χρόνου",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
-    // 2) Φέρε τις κοπές από τη βάση
-    var data = _dbContext.TempOven1
-        .Where(x => x.Cut == 1 &&
-                    x.Date >= from &&
-                    x.Date <= to)
-        .OrderBy(x => x.Date)
-        .ToList();
+            Live_btn.Visible = true;
+            btExport.Visible = true;
 
-    int count = data.Count;
+            // 2) Φέρε τις κοπές από τη βάση
+            var data = _dbContext.TempOven1
+                .Where(x => x.Cut == 1 &&
+                            x.Date >= from &&
+                            x.Date <= to)
+                .OrderBy(x => x.Date)
+                .ToList();
 
-    // 3) Γέμισε τη σειρά του chart
-    series.Points.Clear();
+            int count = data.Count;
 
-    foreach (var item in data)
-    {
-        series.Points.AddXY(item.Date, item.Cut);
-    }
+            // 3) Γέμισε τη σειρά του chart
+            series.Points.Clear();
 
-    // 4) Ρύθμιση άξονα Χ στο εύρος της αναζήτησης
-    var area = chart.ChartAreas["MainArea"];
+            foreach (var item in data)
+            {
+                series.Points.AddXY(item.Date, item.Cut);
+            }
 
-    // Reset τυχόν παλιό zoom
-    area.AxisX.ScaleView.ZoomReset();
+            // 4) Ρύθμιση άξονα Χ στο εύρος της αναζήτησης
+            var area = chart.ChartAreas["MainArea"];
 
-    area.AxisX.Minimum = from.ToOADate();
-    area.AxisX.Maximum = to.ToOADate();
-    area.AxisX.LabelStyle.Format = "HH:mm";
+            // Reset τυχόν παλιό zoom
+            area.AxisX.ScaleView.ZoomReset();
 
-    double totalMinutes = (to - from).TotalMinutes;
+            area.AxisX.Minimum = from.ToOADate();
+            area.AxisX.Maximum = to.ToOADate();
+            area.AxisX.LabelStyle.Format = "HH:mm";
 
-    if (totalMinutes <= 60)
-    {
-        area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
-        area.AxisX.Interval = 5;
-    }
-    else if (totalMinutes <= 6 * 60)
-    {
-        area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
-        area.AxisX.Interval = 30;
-    }
-    else
-    {
-        area.AxisX.IntervalType = DateTimeIntervalType.Hours;
-        area.AxisX.Interval = 1;
-    }
+            double totalMinutes = (to - from).TotalMinutes;
 
-    // 5) Ζωγράφισε τα stop events ως rectangles στο ίδιο εύρος
-    AddStopEventsToChart(from, to);
+            if (totalMinutes <= 60)
+            {
+                area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
+                area.AxisX.Interval = 5;
+            }
+            else if (totalMinutes <= 6 * 60)
+            {
+                area.AxisX.IntervalType = DateTimeIntervalType.Minutes;
+                area.AxisX.Interval = 30;
+            }
+            else
+            {
+                area.AxisX.IntervalType = DateTimeIntervalType.Hours;
+                area.AxisX.Interval = 1;
+            }
 
-    // 6) Υπολογισμός απόδοσης για το εύρος αναζήτησης
-    double hours = (to - from).TotalHours;
+            // 5) Ζωγράφισε τα stop events ως rectangles στο ίδιο εύρος
+            AddStopEventsToChart(from, to);
 
-    if (hours <= 0)
-    {
-        lblEfficiency.Text = "Απόδοση: N/A";
-        return;
-    }
+            // 6) Υπολογισμός απόδοσης για το εύρος αναζήτησης
+            double hours = (to - from).TotalHours;
 
-    var plan = _dbContext.MachinePlan
-        .SingleOrDefault(x => x.Machine == "Cutting - Machine 01");
+            if (hours <= 0)
+            {
+                lblEfficiency.Text = "Απόδοση: N/A";
+                return;
+            }
 
-    if (plan == null || plan.PlanHour <= 0)
-    {
-        lblEfficiency.Text = "Απόδοση: N/A";
-        return;
-    }
+            var plan = _dbContext.MachinePlan
+                .SingleOrDefault(x => x.Machine == "Cutting - Machine 01");
 
-    double expectedCuts = plan.PlanHour * hours;
+            if (plan == null || plan.PlanHour <= 0)
+            {
+                lblEfficiency.Text = "Απόδοση: N/A";
+                return;
+            }
 
-    double efficiency = (expectedCuts > 0)
-        ? (count / expectedCuts) * 100.0
-        : 0.0;
+            double expectedCuts = plan.PlanHour * hours;
 
-    lblEfficiency.Text =
-        $"Απόδοση (αναζήτησης): {efficiency:F1}%   |   {count}/{expectedCuts:F0}";
+            double efficiency = (expectedCuts > 0)
+                ? (count / expectedCuts) * 100.0
+                : 0.0;
 
-    // 7) Χρωματισμός label απόδοσης
-    if (efficiency >= 80)
-    {
-        lblEfficiency.ForeColor = Color.LimeGreen;
-        lblEfficiency.BackColor = Color.FromArgb(30, 60, 30);
-    }
-    else if (efficiency >= 50)
-    {
-        lblEfficiency.ForeColor = Color.Gold;
-        lblEfficiency.BackColor = Color.FromArgb(60, 60, 20);
-    }
-    else
-    {
-        lblEfficiency.ForeColor = Color.Red;
-        lblEfficiency.BackColor = Color.FromArgb(60, 20, 20);
-    }
-}
+            lblEfficiency.Text =
+                $"Απόδοση (αναζήτησης): {efficiency:F1}%   |   {count}/{expectedCuts:F0}";
+
+            // 7) Χρωματισμός label απόδοσης
+            if (efficiency >= 80)
+            {
+                lblEfficiency.ForeColor = Color.LimeGreen;
+                lblEfficiency.BackColor = Color.FromArgb(30, 60, 30);
+            }
+            else if (efficiency >= 50)
+            {
+                lblEfficiency.ForeColor = Color.Gold;
+                lblEfficiency.BackColor = Color.FromArgb(60, 60, 20);
+            }
+            else
+            {
+                lblEfficiency.ForeColor = Color.Red;
+                lblEfficiency.BackColor = Color.FromArgb(60, 20, 20);
+            }
+        }
 
 
         private void Live_btn_Click(object sender, EventArgs e)
         {
+            Live_btn.Visible = false;
+            btExport.Visible = false;
             Update1ChartTimer.Enabled = true;
             lblEifficiencyShift.Visible = true;
             lblPiecesLiveShift.Visible = true;

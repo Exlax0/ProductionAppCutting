@@ -19,12 +19,13 @@ namespace Meme_Oven_Data.Pages
         private readonly MicrOvenContext _dbContext;
         private ComboBox cmbMachine;
         private MaskedTextBox dtAStart, dtAEnd, dtBStart, dtBEnd, dtCStart, dtCEnd;
-        private Button btnSave,btStoreName, btnSaveStopReasons;
+        private Button btnSave,btStoreName, btnSaveStopReasons,btSaveProduct;
         private TextBox txtUserName;
         private DataGridView gridNames;
         private Label lblUserName;
-        private DataGridView dgvOperators, dgvStopReasons;
+        private DataGridView dgvOperators, dgvStopReasons, dvgProductCode;
         private BindingSource operatorsBindingSource = new BindingSource();
+        private BindingSource ProductBindingSource = new BindingSource();
 
 
         public Settings(MicrOvenContext dbContext)
@@ -35,6 +36,116 @@ namespace Meme_Oven_Data.Pages
             LoadMachines();
             LoadOperatorsGrid();
             LoadStopReasonsGrid();
+            InitializeProductCode();
+        }
+
+       
+
+private void InitializeProductCode()
+{
+            this.btSaveProduct = new Button()
+            {
+                Text = "Αποθήκευση προϊόντος",
+                Location = new Point(1280, 550),
+                Size = new Size(250, 50),
+                BackColor = Color.LightBlue,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold)
+            };
+            btSaveProduct.Click += btSaveProduct_Click;
+            this.Controls.Add(btSaveProduct);
+
+
+
+    this.dvgProductCode = new DataGridView()
+    {
+        Location = new Point(1150, 310),
+        Size = new Size(490, 200),
+        AllowUserToAddRows = true,
+        AllowUserToDeleteRows = true,
+        ReadOnly = false,
+        AutoGenerateColumns = false,  // θα φτιάξουμε μόνοι μας στήλες
+        BackgroundColor = Color.White,
+        BorderStyle = BorderStyle.FixedSingle,
+        SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+        MultiSelect = false
+    };
+
+    this.Controls.Add(dvgProductCode);
+
+    // 1) Φόρτωσε τα δεδομένα από τη βάση στη μνήμη EF
+    _dbContext.ProductCutPlan.Load();   // ή ProductCutPlans ανάλογα με το DbSet
+
+    // 2) Σύνδεσε το BindingSource με την Local συλλογή
+    ProductBindingSource.DataSource = _dbContext.ProductCutPlan.Local.ToBindingList();
+
+    // 3) Φτιάξε στήλες και δέσε τις ιδιότητες
+
+    dvgProductCode.Columns.Clear();
+
+    // Κωδικός προϊόντος
+    var colCode = new DataGridViewTextBoxColumn()
+    {
+        HeaderText = "Κωδικός",
+        DataPropertyName = "ProductCode",   // ΟΝΟΜΑ PROPERTY ΣΤΟ ProductCutPlan
+        Width = 100
+    };
+    dvgProductCode.Columns.Add(colCode);
+
+    // Περιγραφή
+    var colDesc = new DataGridViewTextBoxColumn()
+    {
+        HeaderText = "Περιγραφή",
+        DataPropertyName = "Description",
+        Width = 150
+    };
+    dvgProductCode.Columns.Add(colDesc);
+
+    // Τεμάχια ανά κοπή
+    var colPieces = new DataGridViewTextBoxColumn()
+    {
+        HeaderText = "Τεμάχια/Κοπή",
+        DataPropertyName = "PiecesPerCut",
+        Width = 90
+    };
+    dvgProductCode.Columns.Add(colPieces);
+
+    // Κοπές ανά ώρα
+    var colCuts = new DataGridViewTextBoxColumn()
+    {
+        HeaderText = "Κοπές/Ώρα",
+        DataPropertyName = "CutsPerHour",
+        Width = 90
+    };
+    dvgProductCode.Columns.Add(colCuts);
+
+    // 4) Δέσε το DataGridView με το BindingSource
+    dvgProductCode.DataSource = ProductBindingSource;
+}
+
+        private void btSaveProduct_Click(object sender,EventArgs e)
+        {
+            // κλείσε τυχόν edit που είναι σε εξέλιξη
+           dvgProductCode.EndEdit();
+            ProductBindingSource.EndEdit();
+
+            try
+            {
+                _dbContext.SaveChanges();
+                MessageBox.Show("Οι αλλαγές στους χειριστές αποθηκεύτηκαν.",
+                                "Αποθήκευση",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                // προαιρετικά: ξαναφορτώνεις για να είσαι 100% sync
+                // LoadOperatorsGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Προέκυψε σφάλμα κατά την αποθήκευση:\n" + ex.Message,
+                                "Σφάλμα",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void LoadOperatorsGrid()
@@ -266,10 +377,10 @@ namespace Meme_Oven_Data.Pages
             {
                 Location = new Point(610,190),
                 Size =  new Size(120,35),
-
+                Visible = false
             };
 
-            lblUserName = new Label { Text = "Όνομα Χρήστη", Location = new Point(480, 190), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.BlueViolet };
+            lblUserName = new Label { Text = "Όνομα Χρήστη", Location = new Point(480, 190), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold), ForeColor = Color.BlueViolet, Visible = false };
             this.Controls.Add(lblUserName);
             this.Controls.Add(txtUserName);
 
@@ -279,7 +390,8 @@ namespace Meme_Oven_Data.Pages
                 Location = new Point(480, 240),
                 Size = new Size(250, 50),
                 BackColor = Color.LightBlue,
-                Font = new Font("Segoe UI", 11, FontStyle.Bold)
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Visible = false
             };
             btStoreName.Click += btStoreName_Click;
             this.Controls.Add(btStoreName);
@@ -287,7 +399,7 @@ namespace Meme_Oven_Data.Pages
             btnSaveStopReasons = new Button
             {
                 Text = "Αποθήκευση Διακοπής Λειτουργίας",
-                Location = new Point(930, 550),
+                Location = new Point(830, 550),
                 Size = new Size(250, 50),
                 BackColor = Color.OrangeRed,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
@@ -298,7 +410,7 @@ namespace Meme_Oven_Data.Pages
 
             dgvOperators = new DataGridView
             {
-                Location = new Point(480, 310),
+                Location = new Point(450, 310),
                 Size = new Size(250, 200),
                 AllowUserToAddRows = true,
                 AllowUserToDeleteRows = true,
@@ -312,7 +424,7 @@ namespace Meme_Oven_Data.Pages
 
             dgvStopReasons = new DataGridView
             {
-                Location = new Point(880, 310),
+                Location = new Point(770, 310),
                 Size = new Size(350, 200),
                 AllowUserToAddRows = true,
                 AllowUserToDeleteRows = true,
@@ -366,7 +478,7 @@ namespace Meme_Oven_Data.Pages
             var btnSaveOperators = new Button
             {
                 Text = "Αποθήκευση αλλαγών χειριστών",
-                Location = new Point(480, 550),
+                Location = new Point(450, 550),
                 Size = new Size(250, 50),
                 BackColor = Color.IndianRed,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold)
