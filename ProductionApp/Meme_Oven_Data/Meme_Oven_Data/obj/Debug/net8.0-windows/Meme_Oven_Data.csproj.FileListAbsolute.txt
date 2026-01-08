@@ -411,3 +411,14 @@ C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Dat
 C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Debug\net8.0-windows\Meme_Oven_Data.pdb
 C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Debug\net8.0-windows\Meme_Oven_Data.genruntimeconfig.cache
 C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\obj\Debug\net8.0-windows\ref\Meme_Oven_Data.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.Cryptography.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.Shared.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.System.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.WPFonts.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp-gdi.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.BarCodes-gdi.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.Charting-gdi.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.Quality-gdi.dll
+C:\WORKS ALL\C#\CloneProduction\ProductionAppCutting\ProductionApp\Meme_Oven_Data\Meme_Oven_Data\bin\Debug\net8.0-windows\PdfSharp.Snippets-gdi.dll

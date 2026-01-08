@@ -133,6 +133,7 @@
             btExport.Text = "Εκτύπωση";
             btExport.UseVisualStyleBackColor = true;
             btExport.Visible = false;
+            btExport.Click += btExport_Click;
             // 
             // DesOven1
             // 

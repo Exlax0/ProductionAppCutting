@@ -685,6 +685,74 @@
           }
         }
       },
+      "PDFsharp-GDI/6.2.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "System.Security.Cryptography.Pkcs": "8.0.1"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/PdfSharp-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.BarCodes-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Charting-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Cryptography.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Quality-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Shared.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Snippets-gdi.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.System.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.WPFonts.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/PdfSharp-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.BarCodes-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Charting-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Cryptography.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Quality-gdi.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Shared.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.Snippets-gdi.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.System.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0-windows7.0/PdfSharp.WPFonts.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
       "Sharp7/1.1.84": {
         "type": "package",
         "compile": {
@@ -943,6 +1011,28 @@
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp3.0/System.Security.Cryptography.Cng.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Cryptography.Pkcs/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -2194,6 +2284,123 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "PDFsharp-GDI/6.2.3": {
+      "sha512": "qeysSWm2H4U8AzzWhRUuox7/s2LjJJelUHUrlq86AFJSaRXpAVP94gWtPHCGucB2xDVd+43ew7WzH9kJWqQWjg==",
+      "type": "package",
+      "path": "pdfsharp-gdi/6.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "images/PDFsharp-128x128.png",
+        "lib/net10.0-windows7.0/PdfSharp-gdi.dll",
+        "lib/net10.0-windows7.0/PdfSharp-gdi.pdb",
+        "lib/net10.0-windows7.0/PdfSharp-gdi.xml",
+        "lib/net10.0-windows7.0/PdfSharp.BarCodes-gdi.dll",
+        "lib/net10.0-windows7.0/PdfSharp.BarCodes-gdi.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.BarCodes-gdi.xml",
+        "lib/net10.0-windows7.0/PdfSharp.Charting-gdi.dll",
+        "lib/net10.0-windows7.0/PdfSharp.Charting-gdi.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.Charting-gdi.xml",
+        "lib/net10.0-windows7.0/PdfSharp.Cryptography.dll",
+        "lib/net10.0-windows7.0/PdfSharp.Cryptography.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.Cryptography.xml",
+        "lib/net10.0-windows7.0/PdfSharp.Quality-gdi.dll",
+        "lib/net10.0-windows7.0/PdfSharp.Quality-gdi.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.Quality-gdi.xml",
+        "lib/net10.0-windows7.0/PdfSharp.Shared.dll",
+        "lib/net10.0-windows7.0/PdfSharp.Shared.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.Shared.xml",
+        "lib/net10.0-windows7.0/PdfSharp.Snippets-gdi.dll",
+        "lib/net10.0-windows7.0/PdfSharp.Snippets-gdi.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.System.dll",
+        "lib/net10.0-windows7.0/PdfSharp.System.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.System.xml",
+        "lib/net10.0-windows7.0/PdfSharp.WPFonts.dll",
+        "lib/net10.0-windows7.0/PdfSharp.WPFonts.pdb",
+        "lib/net10.0-windows7.0/PdfSharp.WPFonts.xml",
+        "lib/net462/PdfSharp-gdi.dll",
+        "lib/net462/PdfSharp-gdi.pdb",
+        "lib/net462/PdfSharp-gdi.xml",
+        "lib/net462/PdfSharp.BarCodes-gdi.dll",
+        "lib/net462/PdfSharp.BarCodes-gdi.pdb",
+        "lib/net462/PdfSharp.BarCodes-gdi.xml",
+        "lib/net462/PdfSharp.Charting-gdi.dll",
+        "lib/net462/PdfSharp.Charting-gdi.pdb",
+        "lib/net462/PdfSharp.Charting-gdi.xml",
+        "lib/net462/PdfSharp.Cryptography.dll",
+        "lib/net462/PdfSharp.Cryptography.pdb",
+        "lib/net462/PdfSharp.Cryptography.xml",
+        "lib/net462/PdfSharp.Quality-gdi.dll",
+        "lib/net462/PdfSharp.Quality-gdi.pdb",
+        "lib/net462/PdfSharp.Quality-gdi.xml",
+        "lib/net462/PdfSharp.Shared.dll",
+        "lib/net462/PdfSharp.Shared.pdb",
+        "lib/net462/PdfSharp.Shared.xml",
+        "lib/net462/PdfSharp.Snippets-gdi.dll",
+        "lib/net462/PdfSharp.Snippets-gdi.pdb",
+        "lib/net462/PdfSharp.System.dll",
+        "lib/net462/PdfSharp.System.pdb",
+        "lib/net462/PdfSharp.System.xml",
+        "lib/net462/PdfSharp.WPFonts.dll",
+        "lib/net462/PdfSharp.WPFonts.pdb",
+        "lib/net462/PdfSharp.WPFonts.xml",
+        "lib/net8.0-windows7.0/PdfSharp-gdi.dll",
+        "lib/net8.0-windows7.0/PdfSharp-gdi.pdb",
+        "lib/net8.0-windows7.0/PdfSharp-gdi.xml",
+        "lib/net8.0-windows7.0/PdfSharp.BarCodes-gdi.dll",
+        "lib/net8.0-windows7.0/PdfSharp.BarCodes-gdi.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.BarCodes-gdi.xml",
+        "lib/net8.0-windows7.0/PdfSharp.Charting-gdi.dll",
+        "lib/net8.0-windows7.0/PdfSharp.Charting-gdi.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.Charting-gdi.xml",
+        "lib/net8.0-windows7.0/PdfSharp.Cryptography.dll",
+        "lib/net8.0-windows7.0/PdfSharp.Cryptography.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.Cryptography.xml",
+        "lib/net8.0-windows7.0/PdfSharp.Quality-gdi.dll",
+        "lib/net8.0-windows7.0/PdfSharp.Quality-gdi.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.Quality-gdi.xml",
+        "lib/net8.0-windows7.0/PdfSharp.Shared.dll",
+        "lib/net8.0-windows7.0/PdfSharp.Shared.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.Shared.xml",
+        "lib/net8.0-windows7.0/PdfSharp.Snippets-gdi.dll",
+        "lib/net8.0-windows7.0/PdfSharp.Snippets-gdi.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.System.dll",
+        "lib/net8.0-windows7.0/PdfSharp.System.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.System.xml",
+        "lib/net8.0-windows7.0/PdfSharp.WPFonts.dll",
+        "lib/net8.0-windows7.0/PdfSharp.WPFonts.pdb",
+        "lib/net8.0-windows7.0/PdfSharp.WPFonts.xml",
+        "lib/net9.0-windows7.0/PdfSharp-gdi.dll",
+        "lib/net9.0-windows7.0/PdfSharp-gdi.pdb",
+        "lib/net9.0-windows7.0/PdfSharp-gdi.xml",
+        "lib/net9.0-windows7.0/PdfSharp.BarCodes-gdi.dll",
+        "lib/net9.0-windows7.0/PdfSharp.BarCodes-gdi.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.BarCodes-gdi.xml",
+        "lib/net9.0-windows7.0/PdfSharp.Charting-gdi.dll",
+        "lib/net9.0-windows7.0/PdfSharp.Charting-gdi.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.Charting-gdi.xml",
+        "lib/net9.0-windows7.0/PdfSharp.Cryptography.dll",
+        "lib/net9.0-windows7.0/PdfSharp.Cryptography.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.Cryptography.xml",
+        "lib/net9.0-windows7.0/PdfSharp.Quality-gdi.dll",
+        "lib/net9.0-windows7.0/PdfSharp.Quality-gdi.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.Quality-gdi.xml",
+        "lib/net9.0-windows7.0/PdfSharp.Shared.dll",
+        "lib/net9.0-windows7.0/PdfSharp.Shared.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.Shared.xml",
+        "lib/net9.0-windows7.0/PdfSharp.Snippets-gdi.dll",
+        "lib/net9.0-windows7.0/PdfSharp.Snippets-gdi.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.System.dll",
+        "lib/net9.0-windows7.0/PdfSharp.System.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.System.xml",
+        "lib/net9.0-windows7.0/PdfSharp.WPFonts.dll",
+        "lib/net9.0-windows7.0/PdfSharp.WPFonts.pdb",
+        "lib/net9.0-windows7.0/PdfSharp.WPFonts.xml",
+        "pdfsharp-gdi.6.2.3.nupkg.sha512",
+        "pdfsharp-gdi.nuspec"
+      ]
+    },
     "Sharp7/1.1.84": {
       "sha512": "UgclK+VLmrUhyqAeEj7iQysB6K5q1T9fxYGPn3in+Ky+jya4rOHzNgr+9aOh7bSbAwWMgg+HfNBjNG+80RQ+BA==",
       "type": "package",
@@ -2720,6 +2927,43 @@
         "version.txt"
       ]
     },
+    "System.Security.Cryptography.Pkcs/8.0.1": {
+      "sha512": "CoCRHFym33aUSf/NtWSVSZa99dkd0Hm7OCZUxORBjRB16LNhIEOf8THPqzIYlvKM0nNDAPTRBa1FxEECrgaxxA==",
+      "type": "package",
+      "path": "system.security.cryptography.pkcs/8.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Security.Cryptography.Pkcs.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Security.Cryptography.Pkcs.targets",
+        "lib/net462/System.Security.Cryptography.Pkcs.dll",
+        "lib/net462/System.Security.Cryptography.Pkcs.xml",
+        "lib/net6.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net6.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/net7.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net7.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/net8.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net8.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/netstandard2.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/netstandard2.1/System.Security.Cryptography.Pkcs.dll",
+        "lib/netstandard2.1/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net7.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net7.0/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.xml",
+        "system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
+        "system.security.cryptography.pkcs.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Security.Cryptography.ProtectedData/6.0.0": {
       "sha512": "rp1gMNEZpvx9vP0JW0oHLxlf8oSiQgtno77Y4PLUBjSiDYoD77Y8uXHr1Ea5XG4/pIKhqAdxZ8v8OTUtqo9PeQ==",
       "type": "package",
@@ -3111,6 +3355,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.11",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.Extensions.Configuration.Json >= 8.0.1",
+      "PDFsharp-GDI >= 6.2.3",
       "Sharp7 >= 1.1.84",
       "WinForms.DataVisualization >= 1.9.2"
     ]
@@ -3180,6 +3425,10 @@
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[8.0.1, )"
+          },
+          "PDFsharp-GDI": {
+            "target": "Package",
+            "version": "[6.2.3, )"
           },
           "Sharp7": {
             "target": "Package",
